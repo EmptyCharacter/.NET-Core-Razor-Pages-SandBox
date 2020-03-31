@@ -1,0 +1,15 @@
+﻿@page
+@model Core_Sandbox.AddAddressModel
+@{
+    ViewData["Title"] = "AddAddress";
+}
+
+<h1>AddAddress</h1>
+
+<form method="post">
+    <input type="text" asp-for="Address.StreetAddress" placeholder="Street Address" />
+    <input type="text" asp-for="Address.City" placeholder="Street Address" />
+    <input type="text" asp-for="Address.State" placeholder="Street Address" />
+    <input type="text" asp-for="Address.ZipCode" placeholder="Street Address" />
+    <button type="submit">Submit</button>
+</form>
