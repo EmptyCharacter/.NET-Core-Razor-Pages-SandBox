@@ -17,9 +17,15 @@ namespace Core_Sandbox.Pages
             _logger = logger;
         }
 
+        [BindProperty(SupportsGet = true)]
+        public string FirstName { get; set; }
         public void OnGet()
         {
-
+            string userName = Environment.UserName;
+            if (string.IsNullOrWhiteSpace(FirstName))
+            {
+                FirstName = userName;
+            }
         }
     }
 }
