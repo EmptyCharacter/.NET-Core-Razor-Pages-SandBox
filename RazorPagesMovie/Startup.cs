@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,10 +8,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.EntityFrameworkCore;
-using Core_Sandbox.Data;
 
-namespace Core_Sandbox
+namespace RazorPagesMovie
 {
     public class Startup
     {
@@ -26,9 +24,6 @@ namespace Core_Sandbox
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
-
-            services.AddDbContext<Core_SandboxContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("Core_SandboxContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
