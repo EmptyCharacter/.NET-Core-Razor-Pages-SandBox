@@ -22,9 +22,7 @@ namespace WebApplication1
 
         public IList<AppTracker> AppTracker { get;set; }
         public string SearchString { get; set; }
-        public SelectList Status { get; set; }
-        [BindProperty(SupportsGet = true)]
-        public string ApplicationStats { get; set; }
+        
 
         public async Task OnGetAsync()
         {
