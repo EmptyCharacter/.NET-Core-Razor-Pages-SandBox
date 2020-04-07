@@ -22,20 +22,20 @@ namespace WebApplication1
 
         public IList<AppTracker> AppTracker { get;set; }
         public string SearchString { get; set; }
-        public SelectList AppStatus { get; set; }
+        public SelectList Status { get; set; }
         [BindProperty(SupportsGet = true)]
-        public string ApplicationStatus { get; set; }
+        public string ApplicationStats { get; set; }
 
         public async Task OnGetAsync()
         {
-            var status = from m in _context.AppTracker
+            var area = from m in _context.AppTracker
                          select m;
             if(!string.IsNullOrEmpty(SearchString))
             {
-                status = status.Where(s => s.AppStatus.Contains(SearchString));
+                area = area.Where(s => s.Area.Contains(SearchString));
             }
 
-            AppTracker = await _context.AppTracker.ToListAsync();
+            AppTracker = await area.ToListAsync();
         }
     }
 }
