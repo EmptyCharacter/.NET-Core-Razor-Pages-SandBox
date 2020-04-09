@@ -13,7 +13,7 @@ namespace WebApplication1.Models
         
         static private string GetConnectionString()
         {
-            return "Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = WebApplication1Context - a3bbc523 - 7d1d - 4287 - b881 - f00b6dd0c988;"
+            return "Data Source = (localdb)\\MSSQLLocalDB;Initial Catalog=WebApplication1Context - a3bbc523 - 7d1d - 4287 - b881 - f00b6dd0c988;"
                 + "Integrated Security = True;";
         }
 
@@ -28,7 +28,7 @@ namespace WebApplication1.Models
             using(SqlConnection connection = new SqlConnection())
             {
                 connection.ConnectionString = connectionString;
-                connection.Open();
+                 connection.Open();
 
                 DataTable areas = new DataTable();
                 SqlDataAdapter adapter = new SqlDataAdapter();
