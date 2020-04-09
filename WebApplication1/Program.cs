@@ -3,7 +3,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System;
+using System.Collections.Generic;
 using WebApplication1.Models;
+
 
 namespace WebApplication1
 {
@@ -11,6 +13,7 @@ namespace WebApplication1
     {
         public static void Main(string[] args)
         {
+            List<string> test = Geocode.getFromDataBase();
             var host = CreateHostBuilder(args).Build();
 
             using(var scope = host.Services.CreateScope())

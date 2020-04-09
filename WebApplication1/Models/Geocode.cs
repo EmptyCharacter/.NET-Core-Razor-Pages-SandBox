@@ -11,22 +11,35 @@ namespace WebApplication1.Models
     public class Geocode
     {
         
+        static private string GetConnectionString()
+        {
+            return "Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = WebApplication1Context - a3bbc523 - 7d1d - 4287 - b881 - f00b6dd0c988;"
+                + "Integrated Security = True;";
+        }
 
 
         //first create list populated with area names from db
-        public List<string> getFromDataBase()
+        public static List<string> getFromDataBase()
         {
             
             List<string> list = new List<string>();
 
-            DataTable areas = new DataTable();
-            SqlDataAdapter adapter = new SqlDataAdapter();
-            adapter.Fill(areas);
-
-            foreach(DataRow row in areas.Rows)
+            string connectionString = GetConnectionString();
+            using(SqlConnection connection = new SqlConnection())
             {
-                list.Add(row["Area"].ToString());
+                connection.ConnectionString = connectionString;
+                connection.Open();
+
+                DataTable areas = new DataTable();
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                adapter.Fill(areas);
+
+                foreach (DataRow row in areas.Rows)
+                {
+                    list.Add(row["Area"].ToString());
+                }
             }
+
             return list;
         }
 
