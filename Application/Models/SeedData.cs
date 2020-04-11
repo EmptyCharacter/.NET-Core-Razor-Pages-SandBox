@@ -24,47 +24,47 @@ namespace Application.Models
                 context.EntryInfo.AddRange(
                     new EntryInfo
                     {
-                        EmployerName = "",
-                        Position = "",
-                        City = "",
+                        EmployerName = "AeroTek",
+                        Position = "Remote Software Developer",
+                        City = "San Jose",
                         Date = DateTime.Parse("2020-4-13"),
-                        Decision = ""
+                        Decision = "Open"
                     },
 
                     new EntryInfo
                     {
-                        EmployerName = "",
-                        Position = "",
-                        City = "",
+                        EmployerName = "Pack Corp",
+                        Position = "Software Developer",
+                        City = "San Francisco",
                         Date = DateTime.Parse("2020-4-13"),
-                        Decision = ""
+                        Decision = "Open"
                     },
 
                     new EntryInfo
                     {
-                        EmployerName = "",
-                        Position = "",
-                        City = "",
+                        EmployerName = "StollArm",
+                        Position = "Software Developer",
+                        City = "Phoenix",
                         Date = DateTime.Parse("2020-4-13"),
-                        Decision = ""
+                        Decision = "Closed"
                     },
 
                     new EntryInfo
                     {
-                        EmployerName = "",
-                        Position = "",
-                        City = "",
+                        EmployerName = "Randow",
+                        Position = "Remote Software Developer",
+                        City = "Stockton",
                         Date = DateTime.Parse("2020-4-13"),
-                        Decision = ""
+                        Decision = "Open"
                     },
 
                     new EntryInfo
                     {
-                        EmployerName = "",
-                        Position = "",
-                        City = "",
+                        EmployerName = "ClearSol",
+                        Position = "Remote Software Developer",
+                        City = "Cleaveland",
                         Date = DateTime.Parse("2020-4-13"),
-                        Decision = ""
+                        Decision = "Remote Software Developer"
                     }
                 );
                 context.SaveChanges();
