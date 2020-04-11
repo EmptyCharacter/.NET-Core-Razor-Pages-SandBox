@@ -21,9 +21,20 @@ namespace Application
 
         public IList<EntryInfo> EntryInfo { get;set; }
 
+        [BindProperty(SupportsGet = true)]
+        public string SearchString { get; set; }
+
+
+
         public async Task OnGetAsync()
         {
-            EntryInfo = await _context.EntryInfo.ToListAsync();
+            var entry = from e in _context.EntryInfo
+                        select e;
+            if(!string.IsNullOrEmpty(SearchString))
+            {
+                entry = entry.Where(s => s.City.Contains(SearchString));
+            }
+            EntryInfo = await entry.ToListAsync();
         }
     }
 }
