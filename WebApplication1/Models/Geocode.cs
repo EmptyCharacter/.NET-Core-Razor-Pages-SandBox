@@ -17,10 +17,7 @@ namespace WebApplication1.Models
                 + "Integrated Security = True;";
         }
 
-        public string HelpMe()
-        {
-            return "Please someone help";
-        }
+        
 
         //first create list populated with area names from db
         public static List<string> getFromDataBase()
