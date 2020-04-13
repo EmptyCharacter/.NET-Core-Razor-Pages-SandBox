@@ -35,17 +35,10 @@ namespace Application
                 entry = entry.Where(s => s.City.Contains(SearchString));
             }
             EntryInfo = await entry.ToListAsync();
+            
         }
 
-        public List<string> getthistest()
-        {
-            using(var context = new EntryInfo())
-            {
-                var info = context.City
-                    .Include(info => info.EntryInfo)
-                    .ToList();
-            }
-        }
+        
 
     }
 }
