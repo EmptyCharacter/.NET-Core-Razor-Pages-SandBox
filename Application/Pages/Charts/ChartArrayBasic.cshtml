@@ -1,5 +1,13 @@
-﻿@{
-    var myChart = new Chart(width: 600, height: 400)
+﻿@page
+@model Application.ChartArrayBasicModel
+@{
+    ViewData["Title"] = "ChartArrayBasic";
+}
+
+<h1>ChartArrayBasic</h1>
+@using System.Web.Helpers;
+@{
+    var myChart = new System.Web.Helpers.Chart(width: 600, height: 400)
         .AddTitle("Chart Title")
         .AddSeries(
             name: "Employee",
