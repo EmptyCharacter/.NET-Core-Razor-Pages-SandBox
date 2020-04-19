@@ -9,7 +9,7 @@
     <title>@ViewData["Title"] - Application</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
-    <link rel="stylesheet" href="~/css/StyleSheet.css"/>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
 </head>
 
@@ -42,16 +42,13 @@
         </nav>
     </header>
 
-    <div class="container">
-        <div class="first-box">
-            <canvas id="myChart" width="100" height="100"></canvas>
-        </div>
-        <div class="second-box">
-            <canvas id="myChart" width="100" height="100"></canvas>
-        </div>
-        
+    <div class="container" style="position: relative; height:40vh; width:80vw">
+
+        <canvas id="myChart"></canvas>
 
     </div>
+
+    
 
 
 
@@ -98,8 +95,8 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-   
-   
+
+
 
 
     @RenderSection("Scripts", required: false)
