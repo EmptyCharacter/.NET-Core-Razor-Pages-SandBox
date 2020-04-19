@@ -2,9 +2,8 @@
 
 
 .container {
-    width: 300px;
-    background-color: #ffcc33;
-    margin: auto;
+    width: 900px;
+    height: 150px;
 }
 
 .first-box {
@@ -14,6 +13,11 @@
     height: 150px;
     margin: 50px
 }
+.first-box canvas{
+  color: #ffffff;
+  padding-left: 80px;
+  padding-top: 50px;
+}
 
 .second-box {
     width: 300px;
@@ -21,4 +25,10 @@
     float: right;
     background: blue;
     margin: 50px
+}
+
+.second-box canvas{
+  color: #ffffff;
+  padding-left: 110px;
+  padding-top: 50px;
 }
