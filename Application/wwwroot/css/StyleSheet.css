@@ -1,0 +1,24 @@
+﻿
+
+
+.container {
+    width: 300px;
+    background-color: #ffcc33;
+    margin: auto;
+}
+
+.first-box {
+    width: 300px;
+    float: left;
+    background: green;
+    height: 150px;
+    margin: 50px
+}
+
+.second-box {
+    width: 300px;
+    height: 150px;
+    float: right;
+    background: blue;
+    margin: 50px
+}
