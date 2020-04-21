@@ -1,48 +1,27 @@
 ﻿
-    var data, ctx, mychart;
+var ctx = document.getElementById('myChart').getContext('2d');
+var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'line',
 
-        data = {
-        labels: ["Dmitri.Ivanovich.Mendeleev", "Yuri.Alekseyevich.Gagarin", "Alexey.Arkhipovich.Leonov"],
-            datasets: [{
-        label: "My First dataset",
-    fillColor: "rgba(220,220,220,0.5)",
-    strokeColor: "rgba(220,220,220,0.8)",
-    highlightFill: "rgba(220,220,220,0.75)",
-    highlightStroke: "rgba(220,220,220,1)",
-    data: [50, 88, 15]
-}]
-};
+    // The data for our dataset
+    data: {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        datasets: [{
+            label: 'My First dataset',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: [0, 10, 5, 2, 20, 30, 45]
+        }]
+    },
 
-ctx = document.getElementById("chart_b").getContext("2d");
-        mychart2 = new Chart(ctx).Bar(data, {
-        animation: false
+    // Configuration options go here
+    options: {}
 });
 
-
-
-
-        Chart.types.Bar.extend({
-        name: "BarAlt",
-            draw: function () {
-        this.scale.endPoint = this.options.endPoint;
-    Chart.types.Bar.prototype.draw.apply(this, arguments);
-}
-});
-
-        data = {
-        labels: ["Iantojones", "Jackharkness", "Owenharper"],
-            datasets: [{
-        label: "My First dataset",
-    fillColor: "rgba(220,220,220,0.5)",
-    strokeColor: "rgba(220,220,220,0.8)",
-    highlightFill: "rgba(220,220,220,0.75)",
-    highlightStroke: "rgba(220,220,220,1)",
-    data: [50, 88, 15]
-}]
-};
-
-ctx = document.getElementById("chart_a").getContext("2d");
-        mychart1 = new Chart(ctx).BarAlt(data, {
-        endPoint: mychart2.scale.endPoint,
-    animation: false
+var ctx = document.getElementById('myPieChart').getContext('2d');
+var myPieChart = new Chart(ctx, {
+    type: 'pie',
+    data: data,
+    options: options
 });
