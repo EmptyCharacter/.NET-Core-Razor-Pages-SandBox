@@ -1,4 +1,4 @@
-﻿<script>
+﻿
     var data, ctx, mychart;
 
         data = {
@@ -46,4 +46,3 @@ ctx = document.getElementById("chart_a").getContext("2d");
         endPoint: mychart2.scale.endPoint,
     animation: false
 });
-    </script>
