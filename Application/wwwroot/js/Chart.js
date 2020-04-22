@@ -2,7 +2,8 @@
 
 
 
-//then next we would parse that data in JSON format
+//then next we would parse that data in from json to a javascript object so that 
+//the chart js library can make sense of it
 
 
 //Pass that data through to a method that will be understood by the chart js library
