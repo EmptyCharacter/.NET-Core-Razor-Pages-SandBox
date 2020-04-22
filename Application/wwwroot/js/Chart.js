@@ -13,8 +13,17 @@
 
 //Get Data to display to view w/ third party library
 //---------------------------------------------------------------------------
-//How can I convert the data from my database into JSON format?
-//Once converted how would I pass that data through? From where and to where?
+
+
+/*How can I convert the data from my database into JSON format?
+    first we would have to retrive the data from the database 
+    then we can serialize the data
+    JSON format. After serialization it can then be reconstructed
+    to fit the needs of chart js*/
+
+
+/*Once converted how would I pass that data through? From where and to where?
+    */
 //What is ajax and what is it used for?
 //In the context of chart js, how can I display multiple charts?
 //How can I make these charts update dynamically?
