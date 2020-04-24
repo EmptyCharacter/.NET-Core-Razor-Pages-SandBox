@@ -21,6 +21,9 @@
     JSON format. After serialization it can then be reconstructed
     to fit the needs of chart js*/
 
+//we should start by implementing the basic logic structure to be formatted into the third party library
+//from that point we can then render all necessary assets to the users view
+
 
 /*Once converted how would I pass that data through? From where and to where?
     */
