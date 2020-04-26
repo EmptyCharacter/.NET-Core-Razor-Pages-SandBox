@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using Microsoft.Extensions.Logging;
 
 namespace Application
@@ -15,6 +17,12 @@ namespace Application
     {
         public static void Main(string[] args)
         {
+            //Serialization for entryinfo model
+            var entryInfo = new EntryInfo;
+
+            var jsonString = JsonConvert.SerializeObject(obj);
+
+
             var host = CreateHostBuilder(args).Build();
 
             using (var scope = host.Services.CreateScope())

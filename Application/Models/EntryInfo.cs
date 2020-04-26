@@ -19,4 +19,6 @@ namespace Application.Models
         public string Decision { get; set; }
 
     }
+
+
 }
