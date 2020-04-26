@@ -11,6 +11,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using Microsoft.Extensions.Logging;
 
+
 namespace Application
 {
     public class Program
@@ -18,9 +19,10 @@ namespace Application
         public static void Main(string[] args)
         {
             //Serialization for entryinfo model
-            var entryInfo = new EntryInfo;
+            string jsonString;
 
-            var jsonString = JsonConvert.SerializeObject(obj);
+
+            jsonString = JsonSerializer.Serialize(weatherForecast);
 
 
             var host = CreateHostBuilder(args).Build();
