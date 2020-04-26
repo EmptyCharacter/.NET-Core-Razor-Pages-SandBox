@@ -48,7 +48,7 @@
 
 
 
-    <canvas id="myChart" width="50" height="50"></canvas>
+    <canvas id="myChart"width="200" height="200"></canvas>
     <canvas id="stackedLine"></canvas>
 
 
@@ -73,6 +73,8 @@
 
     <script>
         var ctx = document.getElementById('myChart').getContext('2d');
+        ctx.canvas.width = 10;
+        ctx.canvas.height = 10;
         var myChart = new Chart(ctx, {
             type: 'bar',
             data: {
