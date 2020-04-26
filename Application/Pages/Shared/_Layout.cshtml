@@ -47,8 +47,9 @@
     <!---------------------------Place all charts here-------------------------->
 
 
-    <canvas id="myChart"></canvas>
-    <canvas id="myDoughnutChart"></canvas>
+
+    <canvas id="myChart" width="50" height="50"></canvas>
+    <canvas id="stackedLine"></canvas>
 
 
 
@@ -111,22 +112,23 @@
     </script>
 
     <script>
-        var ctx = 'myDoughnutChart';
-        var myDoughnutChart = new Chart(ctx, {
-            type: 'doughnut',
-            data = {
-    datasets: [{
-        data: [10, 20, 30]
-    }],
-
-    // These labels appear in the legend and in the tooltips when hovering different arcs
-    labels: [
-        'Red',
-        'Yellow',
-        'Blue'
-    ]
-},
-            options: options
+        var ctx = 'stackedLine';
+        var stackedLine = new Chart(ctx, {
+            type: 'line',
+            data: [{
+                x: 10,
+                y: 20
+            }, {
+                x: 15,
+                y: 10
+            }],
+            options: {
+                scales: {
+                    yAxes: [{
+                        stacked: true
+                    }]
+                }
+            }
         });
     </script>
 

@@ -72,19 +72,8 @@ body {
 
 /*-----------------------Charts----------------------------*/
 
-#chart_a, #chart_b {
-    width: 320px;
-    height: 350px;
-}
-
-.label {
-    text-align: center;
-    width: 600px;
-    font-size: 20px;
-    font-weight: bold;
-    margin: 20px;
-}
-
-.chart_container {
-    float: left;
+#test{
+    width: 100px;
+    height: 100px;
+    margin: 0px auto;
 }
