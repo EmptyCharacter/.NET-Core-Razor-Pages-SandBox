@@ -19,12 +19,7 @@ namespace Application
         public static void Main(string[] args)
         {
             //Serialization for entryinfo model
-            string jsonString;
-
-
-            jsonString = JsonSerializer.Serialize(weatherForecast);
-
-
+            
             var host = CreateHostBuilder(args).Build();
 
             using (var scope = host.Services.CreateScope())
