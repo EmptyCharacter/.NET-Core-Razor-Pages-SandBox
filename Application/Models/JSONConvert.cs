@@ -12,5 +12,10 @@ namespace Application.Models
 {
     await JsonSerializer.SerializeAsync(fs, weatherForecast);
 }
+
+public void serializeMethod()
+{
+
+}
     }
 }
