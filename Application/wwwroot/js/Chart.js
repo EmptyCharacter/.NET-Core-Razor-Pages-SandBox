@@ -36,3 +36,22 @@ function updateConfigByMutating(chart) {
     chart.options.title.text = 'new title';
     chart.update();
 }
+
+function updateConfigAsNewObject(chart) {
+    chart.options = {
+        responsive: true,
+        title: {
+            display: true,
+            text: 'Chart.js'
+        },
+        scales: {
+            xAxes: [{
+                display: true
+            }],
+            yAxes: [{
+                display: true
+            }]
+        }
+    };
+    chart.update();
+}
