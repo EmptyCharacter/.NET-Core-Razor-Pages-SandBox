@@ -32,3 +32,7 @@
 //In the context of chart js, how can I display multiple charts?
 //How can I make these charts update dynamically?
 
+function updateConfigByMutating(chart) {
+    chart.options.title.text = 'new title';
+    chart.update();
+}
