@@ -57,9 +57,12 @@
         <div class="grid-item">
             <canvas id="stackedLine"></canvas>
         </div>
+        <div class="grid-item">
+            <canvas id="testLine"></canvas>
+        </div>
     </div>
 
-    
+
 
 
 
@@ -110,7 +113,7 @@
             },
             options: {
                 responsive: true,
-                maintainAspectRatio:false,
+                maintainAspectRatio: false,
                 scales: {
                     yAxes: [{
                         ticks: {
@@ -136,7 +139,31 @@
             }],
             options: {
                 responsive: true,
-                maintainAspectRatio:false,
+                maintainAspectRatio: false,
+                scales: {
+                    yAxes: [{
+                        stacked: true
+                    }]
+                }
+            }
+        });
+    </script>
+
+    <script>
+        var ctx = 'testLine';
+
+        var testLine = new Chart(ctx, {
+            type: 'line',
+            data: [{
+                x: 10,
+                y: 20
+            }, {
+                x: 15,
+                y: 10
+            }],
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
                 scales: {
                     yAxes: [{
                         stacked: true

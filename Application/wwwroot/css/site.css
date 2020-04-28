@@ -76,7 +76,7 @@ body {
 
 .grid-container {
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: auto auto;
     
     padding: 10px;
 }
@@ -87,6 +87,18 @@ body {
     padding: 50px;
     font-size: 30px;
     text-align: center;
+}
+
+.item1 {
+    border: 2px solid blue;
+    width: 40%;
+    height: 200px;
+    position: relative;
+    top: 315px;
+}
+
+.item2{
+
 }
 
 
