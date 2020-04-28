@@ -80,7 +80,8 @@
 
     <script>
         var ctx = document.getElementById('myChart').getContext('2d');
-
+        ctx.canvas.width = 450;
+        ctx.canvas.height = 450;
         var myChart = new Chart(ctx, {
             type: 'bar',
             data: {
@@ -108,6 +109,8 @@
                 }]
             },
             options: {
+                responsive: true,
+                maintainAspectRatio:false,
                 scales: {
                     yAxes: [{
                         ticks: {
@@ -121,6 +124,7 @@
 
     <script>
         var ctx = 'stackedLine';
+
         var stackedLine = new Chart(ctx, {
             type: 'line',
             data: [{
@@ -131,6 +135,8 @@
                 y: 10
             }],
             options: {
+                responsive: true,
+                maintainAspectRatio:false,
                 scales: {
                     yAxes: [{
                         stacked: true
