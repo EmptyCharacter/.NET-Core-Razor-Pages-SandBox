@@ -20,7 +20,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">Application</a>
+                <a class="navbar-brand" asp-area="" asp-page="/Index">Applicationsdfsdf</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -51,13 +51,15 @@
 
 
     <div class="container">
-        <div class="chart1">
+        <div>
             <canvas id="myChart"></canvas>
         </div>
-        <div class="chart2">
+        <div>
             <canvas id="stackedLine"></canvas>
         </div>
     </div>
+
+    
 
 
 
@@ -78,8 +80,7 @@
 
     <script>
         var ctx = document.getElementById('myChart').getContext('2d');
-        ctx.canvas.width = 10;
-        ctx.canvas.height = 10;
+
         var myChart = new Chart(ctx, {
             type: 'bar',
             data: {
