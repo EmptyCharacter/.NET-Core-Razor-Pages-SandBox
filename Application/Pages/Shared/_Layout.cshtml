@@ -9,8 +9,15 @@
     <title>@ViewData["Title"] - Application</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+    <style>
+        /* Set the size of the div element that contains the map */
+        #map {
+            height: 400px; /* The height is 400 pixels */
+            width: 100%; /* The width is the width of the web page */
+        }
+    </style>
 </head>
 
 
@@ -60,8 +67,9 @@
         <div class="grid-item">
             <canvas id="testLine"></canvas>
         </div>
+        
         <div class="grid-item">
-            <canvas id="testLinetwo"></canvas>
+            <div id="map"></div>
         </div>
     </div>
 
@@ -83,6 +91,19 @@
     </footer>
 
     <!---------------------------Scripts-------------------------->
+
+    <script>
+        // Initialize and add the map
+        function initMap() {
+            // The location of Uluru
+            var uluru = { lat: -25.344, lng: 131.036 };
+            // The map, centered at Uluru
+            var map = new google.maps.Map(
+                document.getElementById('map'), { zoom: 4, center: uluru });
+            // The marker, positioned at Uluru
+            var marker = new google.maps.Marker({ position: uluru, map: map });
+        }
+    </script>
 
     <script>
         var ctx = document.getElementById('myChart').getContext('2d');
@@ -202,6 +223,9 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/js/Chart.js" asp-append-version="true"></script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAuu_QlTSLJQaNXShxwuHtN3vEa4frY2Sg&callback=initMap">
+    </script>
 
 
 
