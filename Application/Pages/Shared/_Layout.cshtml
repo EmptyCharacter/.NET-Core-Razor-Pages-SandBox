@@ -60,6 +60,9 @@
         <div class="grid-item">
             <canvas id="testLine"></canvas>
         </div>
+        <div class="grid-item">
+            <canvas id="testLinetwo"></canvas>
+        </div>
     </div>
 
 
@@ -83,7 +86,7 @@
 
     <script>
         var ctx = document.getElementById('myChart').getContext('2d');
-        
+
         var myChart = new Chart(ctx, {
             type: 'bar',
             data: {
@@ -172,6 +175,29 @@
         });
     </script>
 
+    <script>
+        var ctx = 'testLinetwo';
+
+        var testLinetwo = new Chart(ctx, {
+            type: 'line',
+            data: [{
+                x: 10,
+                y: 20
+            }, {
+                x: 15,
+                y: 10
+            }],
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                scales: {
+                    yAxes: [{
+                        stacked: true
+                    }]
+                }
+            }
+        });
+    </script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
