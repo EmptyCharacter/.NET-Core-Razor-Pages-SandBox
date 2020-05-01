@@ -15,5 +15,11 @@ namespace Application.Data
         }
 
         public DbSet<Application.Models.EntryInfo> EntryInfo { get; set; }
+
+        public DbSet<ApplicationPositions> ApplicationPositions { get; set; }
+        public DbSet<ApplicationCities> ApplicationCities { get; set; }
+        public DbSet<ApplicationEmployerNames> ApplicationEmployerNames { get; set; }
     }
+
+
 }
