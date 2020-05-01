@@ -11,12 +11,7 @@ namespace Application.Models
   
     public List<EntryInfo> getData()
     {
-        var entryItems = await _context.EntryInfo
-            .Where(b => b.Enabled)
-            .OrderBy(b => b.Name)
-            .Select(b => new SelectListItem){
-                Value = bool.Id, Text = b.Name})
-        .ToListAsync();
+       
     }
 
 
