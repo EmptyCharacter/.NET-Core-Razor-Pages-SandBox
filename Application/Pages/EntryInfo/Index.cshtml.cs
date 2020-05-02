@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Application.Data;
 using Application.Models;
+using Newtonsoft.Json;
 
 namespace Application
 {
@@ -37,6 +38,8 @@ namespace Application
             EntryInfo = await entry.ToListAsync();
             
         }
+
+        
 
         
 

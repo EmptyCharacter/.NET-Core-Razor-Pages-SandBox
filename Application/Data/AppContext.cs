@@ -15,8 +15,6 @@ namespace Application.Data
         }
 
 
-        public DbSet<AppPositions> AppPositions { get; set; }
-        public DbSet<AppCities> AppCities { get; set; }
-        public DbSet<AppEmployerNames> AppEmployerNames { get; set; }
+       
     }
 }
