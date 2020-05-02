@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Application.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Application.Data
 {
@@ -14,9 +15,23 @@ namespace Application.Data
         {
         }
 
+        
+
         public DbSet<Application.Models.EntryInfo> EntryInfo { get; set; }
 
        
+        public async List<EntryInfo> GetCityList()
+        {
+            var cityItems = await _context.EntryInfo
+                .Where(b => b.Enabled)
+                .OrderBy(b => b.City)
+                .Select(b => new SelectListItem
+                {
+                Value = b.Id,
+                Text = b.CIty
+                })
+                .ToListAsync();
+        }
     }
 
 
