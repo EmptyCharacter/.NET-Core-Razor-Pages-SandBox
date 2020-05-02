@@ -29,8 +29,7 @@ namespace Application
 
             services.AddDbContext<ApplicationContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("ApplicationContext")));
-            services.AddDbContext<ApplicationContext>(options =>
-                    options.UseInMemoryDatabase());
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

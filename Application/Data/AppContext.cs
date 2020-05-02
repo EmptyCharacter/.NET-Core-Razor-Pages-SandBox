@@ -14,7 +14,7 @@ namespace Application.Data
 
         }
 
-
+        //labels will be cities and data points will be the number of apps in that city
        
     }
 }
