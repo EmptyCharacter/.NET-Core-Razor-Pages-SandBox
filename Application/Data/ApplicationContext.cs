@@ -10,19 +10,32 @@ namespace Application.Data
 {
     public class ApplicationContext : DbContext
     {
+        
         public ApplicationContext (DbContextOptions<ApplicationContext> options)
             : base(options)
         {
+            
+        }
+
+        private readonly Application.Data.ApplicationContext _context;
+        public CreateModel(Application.Data.ApplicationContext context)
+        {
+            _context = context;
         }
 
         
 
         public DbSet<Application.Models.EntryInfo> EntryInfo { get; set; }
 
-       
-        public async List<EntryInfo> GetCityList()
+        public DbSet<ApplicationContext> CatalogItems { get; set; }
+
+        public DbSet<ApplicationContext> CatalogBrands { get; set; }
+
+        public DbSet<ApplicationContext> CatalogTypes { get; set; }
+
+        public async Task<List<EntryInfo>> GetCityList()
         {
-            var cityItems = await _context.EntryInfo
+            var cityItems = await _context.CatalogItems
                 .Where(b => b.Enabled)
                 .OrderBy(b => b.City)
                 .Select(b => new SelectListItem
@@ -31,6 +44,7 @@ namespace Application.Data
                 Text = b.CIty
                 })
                 .ToListAsync();
+            return cityItems;
         }
     }
 
