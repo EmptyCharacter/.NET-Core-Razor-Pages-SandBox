@@ -22,16 +22,10 @@ namespace Application.Data
 
         public DbSet<Application.Models.EntryInfo> EntryInfo { get; set; }
 
-        public async Task<List<EntryInfo>> GetDataList()
+        public async Task<List<EntryInfo>> GetDataList(ApplicationContext _context)
         {
             var entryItems = await _context.EntryInfo
-            .Where(b => b.Enabled)
-            .OrderBy(b => b.Name)
-            .Select(b => new SelectListItem
-            {
-                Value = b.Id,
-                Text = b.City
-            })
+            .Include(b => b.City)
             .ToListAsync();
             return entryItems;
         }
