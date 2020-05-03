@@ -91,15 +91,7 @@
     </footer>
 
 
-    <script>
-        var model = @Html.Raw(Json.Serialize(Model.ApplicationContext));
-        // initialise a new array
-        var datapoints = [];
-        // build an array of objects
-        $.each(model, function(index, item) {
-        datapoints.push({ x: new Date(item.lastUpdatedDate), y: item.height });
-        });
-    </script>
+    
     <!---------------------------Chart Scripts-------------------------->
 
     <script>

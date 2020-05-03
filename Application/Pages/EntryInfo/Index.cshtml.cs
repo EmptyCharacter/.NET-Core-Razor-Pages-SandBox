@@ -26,6 +26,13 @@ namespace Application
         public string SearchString { get; set; }
 
 
+        public async Task<List<EntryInfo>> GetDataList(ApplicationContext _context)
+        {
+            var entryItems = await _context.EntryInfo
+            .Include(b => b.City)
+            .ToListAsync();
+            return entryItems;
+        }
 
         public async Task OnGetAsync()
         {
