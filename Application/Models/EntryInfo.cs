@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Web.Services;
 
 namespace Application.Models
 {
@@ -18,6 +19,17 @@ namespace Application.Models
 
         public string Decision { get; set; }
 
+    }
+
+    [WebMethod]
+    public static List<ChartDetails> GetChartData()
+    {
+        List<ChartDetails> dataList = new List<ChartDetails>();
+
+        // Access SQL Database Data
+        // Assign SQL Data to List<ChartDetails> dataList
+
+        return dataList;
     }
 
 
