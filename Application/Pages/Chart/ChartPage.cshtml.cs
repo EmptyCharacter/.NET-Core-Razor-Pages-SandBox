@@ -7,6 +7,7 @@ using Application.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 
 namespace Application
 {
@@ -23,17 +24,12 @@ namespace Application
 
         public async Task OnGetAsync()
         {
-            var results = from myRow in myDataTable.AsEnumerable()
-            where myRow.Field<int>("RowNo") == 1
-            select myRow;
-        }
-        public async Task<List<EntryInfo>> GetDataList(ApplicationContext _context)
-        {
             var entryItems = await _context.EntryInfo
-            .Include(b => b.City)
-            .ToListAsync();
+           .Include(b => b.City)
+           .ToListAsync();
             return entryItems;
         }
+        
 
     }
 }
