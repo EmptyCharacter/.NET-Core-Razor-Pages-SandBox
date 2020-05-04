@@ -1,5 +1,7 @@
 ﻿@page
-@model Application.ChartPageModel
+
+@model Application.Models.EntryInfo
+@using Newtonsoft.Json
 @{
     ViewData["Title"] = "ChartPage";
 }
@@ -95,6 +97,11 @@
         </div>
     </footer>
 
+
+    <script type="text/javascript">
+        var data = @Html.Raw(JsonConvert.SerializeObject(Application.Models.EntryInfo));
+        var city = data.City;
+    </script>
 
 
     <!---------------------------Chart Scripts-------------------------->
@@ -240,7 +247,7 @@
 
 
 
-    
+
 </body>
 
 </html>

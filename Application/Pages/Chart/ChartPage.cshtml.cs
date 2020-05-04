@@ -24,10 +24,7 @@ namespace Application
 
         public async Task OnGetAsync()
         {
-            var entryItems = await _context.EntryInfo
-           .Include(b => b.City)
-           .ToListAsync();
-            return entryItems;
+           
         }
         
 
