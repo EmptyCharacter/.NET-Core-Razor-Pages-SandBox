@@ -22,12 +22,9 @@ namespace Application.Data
 
         public DbSet<Application.Models.EntryInfo> EntryInfo { get; set; }
 
-        public async Task<List<EntryInfo>> GetDataList(ApplicationContext _context)
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            var entryItems = await _context.EntryInfo
-            .Include(b => b.City)
-            .ToListAsync();
-            return entryItems;
+            modelBuilder.Entity<Application.Models.EntryInfo>().ToTable("EntryInfo");
         }
 
 

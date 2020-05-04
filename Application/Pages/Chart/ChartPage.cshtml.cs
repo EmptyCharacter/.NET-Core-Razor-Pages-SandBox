@@ -23,16 +23,17 @@ namespace Application
 
         public async Task OnGetAsync()
         {
-            DataTable dt = new DataTable();
-
-            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-
-            adapter.Fill(dt);
-
-            foreach (DataRow row in dt.Rows)
-            {
-                TextBox1.Text = row["ImagePath"].ToString();
-            }
+            var results = from myRow in myDataTable.AsEnumerable()
+            where myRow.Field<int>("RowNo") == 1
+            select myRow;
         }
+        public async Task<List<EntryInfo>> GetDataList(ApplicationContext _context)
+        {
+            var entryItems = await _context.EntryInfo
+            .Include(b => b.City)
+            .ToListAsync();
+            return entryItems;
+        }
+
     }
 }
