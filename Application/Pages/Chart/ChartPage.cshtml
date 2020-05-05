@@ -99,7 +99,7 @@
 
 
     <script type="text/javascript">
-        var data = @Html.Raw(JsonConvert.SerializeObject(Application.Models.EntryInfo));
+        var data = @Html.Raw(JsonConvert.SerializeObject(this.Model));
         var city = data.City;
     </script>
 
