@@ -26,6 +26,11 @@ namespace Application
         {
            
         }
+
+        //The array must have a max size of 12 due to the restraints given from the data 
+        //structure of the bar chart
+        //Labels will be months of the year
+        //datapoints will be amt sent during that month
         
 
     }
