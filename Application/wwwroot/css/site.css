@@ -87,15 +87,10 @@ body {
     padding: 50px;
     font-size: 30px;
     text-align: center;
+    height:400px;
+    width:400px;
 }
 
-.item1 {
-    border: 2px solid blue;
-    width: 40%;
-    height: 200px;
-    position: relative;
-    top: 315px;
-}
 
 /* Set the size of the div element that contains the map */
 #map {
