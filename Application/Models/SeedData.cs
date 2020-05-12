@@ -27,7 +27,7 @@ namespace Application.Models
                         EmployerName = "AeroTek",
                         Position = "Remote Software Developer",
                         City = "San Jose",
-                        Date = DateTime.Parse("2020-4-13"),
+                        Date = DateTime.Parse("2020-1-13"),
                         Decision = "Open"
                     },
 
@@ -36,7 +36,7 @@ namespace Application.Models
                         EmployerName = "Pack Corp",
                         Position = "Software Developer",
                         City = "San Francisco",
-                        Date = DateTime.Parse("2020-4-13"),
+                        Date = DateTime.Parse("2020-2-13"),
                         Decision = "Open"
                     },
 
@@ -45,7 +45,7 @@ namespace Application.Models
                         EmployerName = "StollArm",
                         Position = "Software Developer",
                         City = "Phoenix",
-                        Date = DateTime.Parse("2020-4-13"),
+                        Date = DateTime.Parse("2020-3-13"),
                         Decision = "Closed"
                     },
 
@@ -63,9 +63,73 @@ namespace Application.Models
                         EmployerName = "ClearSol",
                         Position = "Remote Software Developer",
                         City = "Cleaveland",
-                        Date = DateTime.Parse("2020-4-13"),
+                        Date = DateTime.Parse("2020-5-13"),
+                        Decision = "Remote Software Developer"
+                    },
+
+                    new EntryInfo
+                    {
+                        EmployerName = "ClrSol",
+                        Position = "Remote Software Developer",
+                        City = "Michigan",
+                        Date = DateTime.Parse("2020-6-13"),
+                        Decision = "Remote Software Developer"
+                    },
+
+                    new EntryInfo
+                    {
+                        EmployerName = "Tekalt",
+                        Position = "Remote Software Developer",
+                        City = "California",
+                        Date = DateTime.Parse("2020-7-13"),
+                        Decision = "Open"
+                    },
+
+                    new EntryInfo
+                    {
+                        EmployerName = "Packers",
+                        Position = "Software Developer",
+                        City = "Nevada",
+                        Date = DateTime.Parse("2020-8-13"),
+                        Decision = "Open"
+                    },
+
+                    new EntryInfo
+                    {
+                        EmployerName = "Arm",
+                        Position = "Software Developer",
+                        City = "Arizona",
+                        Date = DateTime.Parse("2020-9-13"),
+                        Decision = "Closed"
+                    },
+
+                    new EntryInfo
+                    {
+                        EmployerName = "Randow",
+                        Position = "Remote Software Developer",
+                        City = "California",
+                        Date = DateTime.Parse("2020-10-13"),
+                        Decision = "Open"
+                    },
+
+                    new EntryInfo
+                    {
+                        EmployerName = "Shulker",
+                        Position = "Remote Software Developer",
+                        City = "Wyoming",
+                        Date = DateTime.Parse("2020-11-13"),
+                        Decision = "Remote Software Developer"
+                    },
+
+                    new EntryInfo
+                    {
+                        EmployerName = "Abjol",
+                        Position = "Remote Software Developer",
+                        City = "Ohio",
+                        Date = DateTime.Parse("2020-12-13"),
                         Decision = "Remote Software Developer"
                     }
+
                 );
                 context.SaveChanges();
             }
