@@ -14,7 +14,7 @@ namespace Application
     public class ChartPageModel : PageModel
     {
         private readonly Application.Data.ApplicationContext _context;
-
+        
         public ChartPageModel(Application.Data.ApplicationContext context)
         {
             _context = context;
@@ -27,11 +27,20 @@ namespace Application
            
         }
 
-        //The array must have a max size of 12 due to the restraints given from the data 
-        //structure of the bar chart
-        //Labels will be months of the year
-        //datapoints will be amt sent during that month
-        
-        //so I first 
+        public Array ChartOne()
+        {
+            int[] MonthCount = new int[12];
+            //Data access
+
+
+            //loop through all rows in date column and compare i with matching date value
+            int counter = 0;
+            for(int i = 0; i < 12; i++)
+            {
+                //if matching value then increase counter
+            }
+
+            return MonthCount;
+        }
     }
 }
