@@ -13,7 +13,7 @@ namespace Application
 {
     public class ChartPageModel : PageModel
     {
-        public int data;
+        
         private readonly Application.Data.ApplicationContext _context;
         
         public ChartPageModel(Application.Data.ApplicationContext context)
