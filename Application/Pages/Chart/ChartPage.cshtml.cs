@@ -13,6 +13,7 @@ namespace Application
 {
     public class ChartPageModel : PageModel
     {
+        public int data;
         private readonly Application.Data.ApplicationContext _context;
         
         public ChartPageModel(Application.Data.ApplicationContext context)
@@ -20,7 +21,7 @@ namespace Application
             _context = context;
         }
 
-        public IList<EntryInfo> EntryInfo { get; set; }
+        public EntryInfo EntryInfo { get; set; }
 
         public async Task OnGetAsync()
         {
@@ -29,7 +30,8 @@ namespace Application
 
         public Array ChartOne()
         {
-            using(var sqlConnection1 = new SqlConnection("Server=(localdb)\\mssqllocaldb;Database=ApplicationContext-cbca0afc-a7e0-44c5-bb20-34ae8a99148a;Trusted_Connection=True;MultipleActiveResultSets=true"))
+            int[] MonthCount = new int[12];
+            using (var sqlConnection1 = new SqlConnection("Server=(localdb)\\mssqllocaldb;Database=ApplicationContext-cbca0afc-a7e0-44c5-bb20-34ae8a99148a;Trusted_Connection=True;MultipleActiveResultSets=true"))
             {
                 using (var cmd = new SqlCommand()
                 {
@@ -38,30 +40,27 @@ namespace Application
                     Connection = sqlConnection1
                 })
                 {
-                    cmd.Parameters.Add("@id", SqlDbType.Int).Value = model.City;
+                    cmd.Parameters.Add("@id", SqlDbType.Int).Value = EntryInfo.City;
                     sqlConnection1.Open();
 
                     using(var reader = cmd.ExecuteReader())
                     {
                         if(reader.Read())
                         {
-
+                            int counter = 0;
+                            for (int i = 0; i < 12; i++)
+                            {
+                                //if matching value then increase counter
+                            }
                         }
                     }
                 }
             }
 
 
-            int[] MonthCount = new int[12];
-            //Data access
 
 
-            //loop through all rows in date column and compare i with matching date value
-            int counter = 0;
-            for(int i = 0; i < 12; i++)
-            {
-                //if matching value then increase counter
-            }
+            
 
             return MonthCount;
         }
