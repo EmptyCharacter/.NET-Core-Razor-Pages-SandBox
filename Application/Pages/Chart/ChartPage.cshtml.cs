@@ -29,6 +29,29 @@ namespace Application
 
         public Array ChartOne()
         {
+            using(var sqlConnection1 = new SqlConnection("Server=(localdb)\\mssqllocaldb;Database=ApplicationContext-cbca0afc-a7e0-44c5-bb20-34ae8a99148a;Trusted_Connection=True;MultipleActiveResultSets=true"))
+            {
+                using (var cmd = new SqlCommand()
+                {
+                    CommandText = "SELECT * FROM dbo.EntryInfo WHERE id = @id",
+                    CommandType = CommandType.Text,
+                    Connection = sqlConnection1
+                })
+                {
+                    cmd.Parameters.Add("@id", SqlDbType.Int).Value = model.City;
+                    sqlConnection1.Open();
+
+                    using(var reader = cmd.ExecuteReader())
+                    {
+                        if(reader.Read())
+                        {
+
+                        }
+                    }
+                }
+            }
+
+
             int[] MonthCount = new int[12];
             //Data access
 
@@ -42,5 +65,7 @@ namespace Application
 
             return MonthCount;
         }
+
+
     }
 }
