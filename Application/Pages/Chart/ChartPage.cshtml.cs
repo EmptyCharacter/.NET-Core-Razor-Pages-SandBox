@@ -50,6 +50,7 @@ namespace Application
                             int counter = 0;
                             for (int i = 1; i <= 12; i++)
                             {
+                                //this wont work because im not parsing the date times first
                                 if(i.Equals(placeVarHere))
                                 {
                                     counter++;
