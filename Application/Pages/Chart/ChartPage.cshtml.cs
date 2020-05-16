@@ -50,9 +50,16 @@ namespace Application
                             int counter = 0;
                             for (int i = 0; i < 12; i++)
                             {
-                                //if matching value then increase counter
+                                if(i.Equals(placeVarHere))
+                                {
+                                    counter++;
+                                }
+
                             }
+
                         }
+
+
                     }
                 }
             }
