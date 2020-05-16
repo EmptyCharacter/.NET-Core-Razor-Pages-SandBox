@@ -40,7 +40,7 @@ namespace Application
                     Connection = sqlConnection1
                 })
                 {
-                    cmd.Parameters.Add("@id", SqlDbType.Int).Value = EntryInfo.City;
+                    cmd.Parameters.Add("@id", SqlDbType.Int).Value = EntryInfo.Date;
                     sqlConnection1.Open();
 
                     using(var reader = cmd.ExecuteReader())
@@ -48,7 +48,7 @@ namespace Application
                         if(reader.Read())
                         {
                             int counter = 0;
-                            for (int i = 0; i < 12; i++)
+                            for (int i = 1; i <= 12; i++)
                             {
                                 if(i.Equals(placeVarHere))
                                 {
