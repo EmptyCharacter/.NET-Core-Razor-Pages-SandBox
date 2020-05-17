@@ -35,7 +35,7 @@ namespace Application
         }
         public Array ChartOne()
         {
-            int[] MonthCount = new int[12];
+            
             using (var sqlConnection1 = new SqlConnection("Server=(localdb)\\mssqllocaldb;Database=ApplicationContext-cbca0afc-a7e0-44c5-bb20-34ae8a99148a;Trusted_Connection=True;MultipleActiveResultSets=true"))
             {
                 using (var cmd = new SqlCommand()
