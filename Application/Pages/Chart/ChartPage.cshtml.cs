@@ -29,10 +29,7 @@ namespace Application
         }
 
 
-        public static void main(string args[])
-        {
-            sortArray(ChartOne());
-        }
+        
         public Array ChartOne()
         {
             

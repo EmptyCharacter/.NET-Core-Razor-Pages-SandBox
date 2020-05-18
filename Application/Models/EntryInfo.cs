@@ -10,6 +10,7 @@ namespace Application.Models
     public class EntryInfo
     {
         public int ID { get; set; }
+
         [Display(Name = "Employer Name")]
         public string EmployerName { get; set; }
         public string Position { get; set; }

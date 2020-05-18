@@ -77,12 +77,6 @@
 
 
 
-    <script type="text/javascript">
-        //I just want every row in the specific column to be selected and serialized
-        //I also dont want to have to rewrtite this script for every chart model
-        var data = @Html.Raw(JsonConvert.SerializeObject(this.Model));
-        var city = data.City;
-    </script>
 
 
     <!---------------------------Chart Scripts-------------------------->
@@ -109,7 +103,7 @@
                     'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
                 datasets: [{
                     label: '# of Votes',
-                    data: data,
+                    data: [12],
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
                         'rgba(54, 162, 235, 0.2)',
