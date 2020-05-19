@@ -32,33 +32,11 @@ namespace Application
         
         public Array ChartOne()
         {
-            
-            using (var sqlConnection1 = new SqlConnection("Server=(localdb)\\mssqllocaldb;Database=ApplicationContext-cbca0afc-a7e0-44c5-bb20-34ae8a99148a;Trusted_Connection=True;MultipleActiveResultSets=true"))
+
+            using (Var db = new EntryInfo())
             {
-                using (var cmd = new SqlCommand()
-                {
-                    CommandText = "SELECT * FROM dbo.EntryInfo WHERE id = @id",
-                    CommandType = CommandType.Text,
-                    Connection = sqlConnection1
-                })
-                {
-                    cmd.Parameters.Add("@id", SqlDbType.Int).Value = EntryInfo.Date;
-                    sqlConnection1.Open();
-
-                    using(var reader = cmd.ExecuteReader())
-                    {
-                        while(reader.Read())
-                        {
-                            
-
-                        }
-
-
-                    }
-                }
+                Var studentes = db.Students.Where(s => s.FirstName == "MyName").ToList();
             }
-
-            return MonthCount;
         }
 
 
