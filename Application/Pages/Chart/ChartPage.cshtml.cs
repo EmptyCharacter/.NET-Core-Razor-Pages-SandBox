@@ -4,10 +4,9 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using Application.Models;
-using Microsoft.AspNetCore.Mvc;
+
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.Data.SqlClient;
-using Microsoft.EntityFrameworkCore;
+
 
 namespace Application
 {
@@ -21,7 +20,8 @@ namespace Application
             _context = context;
         }
 
-        public EntryInfo EntryInfo { get; set; }
+        public EntryInfo[] EntryInfoArray { get; set; }
+        public DateTime[] DateArray;
 
         public async Task OnGetAsync()
         {
@@ -32,18 +32,15 @@ namespace Application
         
         public Array ChartOne()
         {
-
-            using (Var db = new EntryInfo())
-            {
-                Var studentes = db.Students.Where(s => s.FirstName == "MyName").ToList();
-            }
+            DateTime[] DateArray = EntryInfoArray.Select(x => x.Date).ToArray();
+            sortArray(DateArray);
+            return DateArray;
         }
 
 
         public Array sortArray(Array test)
         {
-            int[] newArray =  new int[12];
-            return newArray;
+            
         }
 
 
