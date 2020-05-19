@@ -20,8 +20,8 @@ namespace Application
             _context = context;
         }
 
-        public EntryInfo[] EntryInfoArray { get; set; }
-        public DateTime[] DateArray;
+        public List<DateTime> EntryInfoArray { get; set; }
+        public List<DateTime> DateArray;
 
         public async Task OnGetAsync()
         {
@@ -30,17 +30,26 @@ namespace Application
 
 
         
-        public Array ChartOne()
+        public List<DateTime> ChartOne()
         {
-            DateTime[] DateArray = EntryInfoArray.Select(x => x.Date).ToArray();
-            sortArray(DateArray);
-            return DateArray;
+            List<DateTime> DateList = EntryInfoArray.Select(x => x.Date).ToList();
+            List<DateTime> temp = SortArray(DateList);
+            return temp;
         }
 
 
-        public Array sortArray(Array test)
+        public List<DateTime> SortArray(List<DateTime> test)
         {
-            
+            List<DateTime> tempList;
+            for(var i = 0; i < test.Count; i++)
+            {
+                int counter = 0;
+                if(test[i].Month == i)
+                {
+                    counter++;
+                }
+            }
+            return tempList;
         }
 
 
