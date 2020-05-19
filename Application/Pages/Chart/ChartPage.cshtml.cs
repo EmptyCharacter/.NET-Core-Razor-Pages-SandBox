@@ -30,27 +30,37 @@ namespace Application
 
 
         
-        public List<DateTime> ChartOne()
+        public List<int> ChartOne()
         {
             List<DateTime> DateList = EntryInfoArray.Select(x => x.Date).ToList();
-            List<DateTime> temp = SortArray(DateList);
+            List<int> temp = SortArray(DateList);
             return temp;
         }
 
 
-        public List<DateTime> SortArray(List<DateTime> test)
+        public List<int> SortArray(List<DateTime> test)
         {
-            List<DateTime> tempList;
-            for(var i = 0; i < test.Count; i++)
+            List<int> tempList = new List<int>();
+            for (var i = 1; i <= 12; i++)
             {
                 int counter = 0;
-                if(test[i].Month == i)
+                foreach (DateTime d in test)
                 {
-                    counter++;
+                    if (d.Month == i)
+                    {
+                        counter++;
+
+                    }
                 }
+                tempList.Add(counter);
+
             }
             return tempList;
         }
+
+       
+
+
 
 
     }
