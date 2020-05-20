@@ -18,6 +18,7 @@ namespace Application
     {
         public static void Main(string[] args)
         {
+            
             //Serialization for entryinfo model
             
             var host = CreateHostBuilder(args).Build();

@@ -30,11 +30,11 @@ namespace Application
 
 
         
-        public List<int> ChartOne()
+        public int[] ChartOne()
         {
             List<DateTime> DateList = EntryInfoArray.Select(x => x.Date).ToList();
             List<int> temp = SortArray(DateList);
-            return temp;
+            return temp.ToArray();
         }
 
 
