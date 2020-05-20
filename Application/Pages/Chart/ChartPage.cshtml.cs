@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using Application.Models;
+using Application.Data;
 
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -16,21 +17,21 @@ namespace Application
         
         private readonly Application.Data.ApplicationContext _context;
         
+        public ChartPageModel(ApplicationContext context)
+        {
+            _context = context;
+        }
         
 
-        public EntryInfo EntryInfoArray { get; set; }
+        public List<DateTime> EntryInfoArray { get; set; }
         public List<DateTime> DateList;
 
-        public async Task OnGetAsync()
-        {
-           
-        }
-
-
+        
         
         public int[] ChartOne()
         {
-            List<DateTime> DateList = EntryInfoArray.Select(x => x.Date).ToList();
+            
+            List<DateTime> DateList = _context.EntryInfo.Select(x => x.Date).ToList();
             List<int> temp = SortArray(DateList);
             return temp.ToArray();
         }
