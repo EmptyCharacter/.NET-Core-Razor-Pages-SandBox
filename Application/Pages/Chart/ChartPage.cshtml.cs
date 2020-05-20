@@ -10,18 +10,16 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Application
 {
+    [Serializable]
     public class ChartPageModel : PageModel
     {
         
         private readonly Application.Data.ApplicationContext _context;
         
-        public ChartPageModel(Application.Data.ApplicationContext context)
-        {
-            _context = context;
-        }
+        
 
-        public List<DateTime> EntryInfoArray { get; set; }
-        public List<DateTime> DateArray;
+        public EntryInfo EntryInfoArray { get; set; }
+        public List<DateTime> DateList;
 
         public async Task OnGetAsync()
         {

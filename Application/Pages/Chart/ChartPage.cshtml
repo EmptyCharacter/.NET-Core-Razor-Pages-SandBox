@@ -8,7 +8,9 @@
     ViewData["Title"] = "ChartPage";
 }
 @{
-    int[] firstTest = ChartPageModel.ChartOne();
+    
+    ChartPageModel pageModel = new ChartPageModel();
+    var tester = pageModel.ChartOne();
 
 }
 
@@ -106,7 +108,7 @@
                     'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
                 datasets: [{
                     label: '# of Votes',
-                    data: [12],
+                    data: tester,
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
                         'rgba(54, 162, 235, 0.2)',
