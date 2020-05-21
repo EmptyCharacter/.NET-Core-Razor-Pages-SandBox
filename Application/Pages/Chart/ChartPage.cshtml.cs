@@ -22,12 +22,19 @@ namespace Application
             _context = context;
         }
 
+        
         public EntryInfo EntryInfo { get; set; }
         public List<DateTime> EntryInfoArray { get; set; }
         public List<DateTime> DateList;
 
-        
 
+        public void OnGet()
+        {
+
+        }
+
+
+        //-------------------------------First Chart-------------------------------------
         public int[] ChartOne()
         {
             
@@ -61,7 +68,7 @@ namespace Application
             return tempList;
         }
 
-       
+        //-------------------------------Second Chart-------------------------------------
 
 
 
