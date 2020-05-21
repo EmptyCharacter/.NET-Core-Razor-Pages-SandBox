@@ -30,16 +30,13 @@ namespace Application
 
         public void OnGet()
         {
-
+            //Retrive all data to be rendered in view
         }
 
 
-        //-------------------------------First Chart-------------------------------------
+        //-------------------------------First Chart (Bar)-------------------------------------
         
-        public Action SOmething()
-        {
-            
-        }
+        
     
         public int[] ChartOne()
         {
@@ -74,10 +71,19 @@ namespace Application
             return tempList;
         }
 
-        //-------------------------------Second Chart-------------------------------------
+        //-------------------------------Second Chart (Line)-------------------------------------
 
 
+        //-------------------------------Third Chart-------------------------------------
 
+        //-------------------------------Fourth Chart (Maps API)-------------------------------------
+
+        public void DoNow()
+        {
+            List<Double> latLng = new List<Double>();
+            Dictionary<Double, Double> addressList = new Dictionary<Double, Double>();
+
+        }
 
     }
 }
