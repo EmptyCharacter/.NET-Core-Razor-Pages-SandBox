@@ -21,13 +21,13 @@ namespace Application
         {
             _context = context;
         }
-        
 
+        public EntryInfo EntryInfo { get; set; }
         public List<DateTime> EntryInfoArray { get; set; }
         public List<DateTime> DateList;
 
         
-        
+
         public int[] ChartOne()
         {
             
@@ -35,6 +35,10 @@ namespace Application
             List<int> temp = SortArray(DateList);
             return temp.ToArray();
         }
+
+        
+
+
 
 
         public List<int> SortArray(List<DateTime> test)

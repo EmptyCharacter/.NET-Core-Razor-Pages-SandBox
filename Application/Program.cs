@@ -16,9 +16,11 @@ namespace Application
 {
     public class Program
     {
+        
         public static void Main(string[] args)
         {
-            
+            var instance = new ChartPageModel();
+            instance.ChartOne();
             //Serialization for entryinfo model
             
             var host = CreateHostBuilder(args).Build();
