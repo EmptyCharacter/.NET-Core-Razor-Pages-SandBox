@@ -80,8 +80,9 @@ namespace Application
 
         public void DoNow()
         {
-            List<Double> latLng = new List<Double>();
-            Dictionary<Double, Double> addressList = new Dictionary<Double, Double>();
+            //populate list with address data
+            List<string> addressList = new List<string>();
+            Dictionary<Double, Double> LatLngList = new Dictionary<Double, Double>();
 
         }
 
