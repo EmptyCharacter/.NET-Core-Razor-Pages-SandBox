@@ -35,9 +35,15 @@ namespace Application
 
 
         //-------------------------------First Chart-------------------------------------
-        public int[] ChartOne()
+        
+        public Action SOmething()
         {
             
+        }
+    
+        public int[] ChartOne()
+        {
+            //Logic is there but now you need to populate List from the database
             List<DateTime> DateList = _context.EntryInfo.Select(x => x.Date).ToList();
             List<int> temp = SortArray(DateList);
             return temp.ToArray();
