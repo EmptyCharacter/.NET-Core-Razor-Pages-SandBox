@@ -7,7 +7,8 @@ using Application.Models;
 using Application.Data;
 
 using Microsoft.AspNetCore.Mvc.RazorPages;
-
+using System.Xml.Linq;
+using System.Net;
 
 namespace Application
 {
@@ -82,7 +83,25 @@ namespace Application
         {
             //populate list with address data
             List<string> addressList = new List<string>();
-            Dictionary<Double, Double> LatLngList = new Dictionary<Double, Double>();
+            Dictionary<XElement, XElement> LatLngList = new Dictionary<XElement, XElement>();
+
+            foreach(string entry in addressList)
+            {
+                string requestUri = string.Format("https://maps.googleapis.com/maps/api/geocode/xml?key={1}&address={0}&sensor=false", Uri.EscapeDataString(entry), YOUR_API_KEY);
+
+                WebRequest request = WebRequest.Create(requestUri);
+                WebResponse response = request.GetResponse();
+                XDocument xdoc = XDocument.Load(response.GetResponseStream());
+
+                XElement result = xdoc.Element("GeocodeResponse").Element("result");
+                XElement locationElement = result.Element("geometry").Element("location");
+                XElement lat = locationElement.Element("lat");
+                XElement lng = locationElement.Element("lng");
+
+                //add value to 
+                LatLngList.Add(lat, lng);
+            }
+           
 
         }
 
