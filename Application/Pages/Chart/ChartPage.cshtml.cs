@@ -2,21 +2,15 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Threading.Tasks;
 using Application.Models;
 using Application.Data;
-
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.Xml.Linq;
-using System.Net;
 using System.Drawing;
-using System.Configuration;
-using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 
 namespace Application
 {
-    [Serializable]
+    
     public class ChartPageModel : PageModel
     {
         
@@ -29,7 +23,6 @@ namespace Application
 
         
         
-        public List<DateTime> EntryInfoArray { get; set; }
         public List<DateTime> DateList;
 
 
@@ -41,6 +34,9 @@ namespace Application
 
         //-------------------------------First Chart (Bar)-------------------------------------
 
+        
+        
+        
 
         public List<EntryInfo> GetDataList(ApplicationContext _context)
         {
@@ -50,12 +46,12 @@ namespace Application
             return entryItems;
         }
 
-        public int[] ChartOne()
+        public List<int> ChartOne()
         {
             List<EntryInfo> entries = GetDataList(_context);
             List<DateTime> DateList = entries.Select(x => x.Date).ToList();
             List<int> temp = SortArray(DateList);
-            return temp.ToArray();
+            return temp;
         }
 
         
@@ -94,6 +90,7 @@ namespace Application
 
         //-------------------------------Fourth Chart (Maps API)-------------------------------------
 
+            /*
         public Dictionary<XElement, XElement> DoNow()
         {
             //populate list with address data
@@ -119,7 +116,7 @@ namespace Application
 
             return LatLngList;
 
-        }
+        }*/
 
     }
 }
