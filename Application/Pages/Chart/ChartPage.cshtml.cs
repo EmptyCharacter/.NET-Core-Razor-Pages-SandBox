@@ -9,6 +9,7 @@ using Application.Data;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Xml.Linq;
 using System.Net;
+using System.Drawing;
 
 namespace Application
 {
@@ -74,12 +75,16 @@ namespace Application
 
         //-------------------------------Second Chart (Line)-------------------------------------
 
+        public void SecondNow()
+        {
+            List<Point> pointList = new List<Point>();
+        }
 
         //-------------------------------Third Chart-------------------------------------
 
         //-------------------------------Fourth Chart (Maps API)-------------------------------------
 
-        public void DoNow()
+        public Dictionary<XElement, XElement> DoNow()
         {
             //populate list with address data
             List<string> addressList = new List<string>();
@@ -101,7 +106,8 @@ namespace Application
                 //add value to 
                 LatLngList.Add(lat, lng);
             }
-           
+
+            return LatLngList;
 
         }
 
