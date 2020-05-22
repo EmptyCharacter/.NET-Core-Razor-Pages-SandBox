@@ -10,6 +10,9 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Xml.Linq;
 using System.Net;
 using System.Drawing;
+using System.Configuration;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 
 namespace Application
 {
@@ -25,7 +28,7 @@ namespace Application
         }
 
         
-        public EntryInfo EntryInfo { get; set; }
+        
         public List<DateTime> EntryInfoArray { get; set; }
         public List<DateTime> DateList;
 
@@ -37,13 +40,20 @@ namespace Application
 
 
         //-------------------------------First Chart (Bar)-------------------------------------
-        
-        
-    
+
+
+        public List<EntryInfo> GetDataList(ApplicationContext _context)
+        {
+            var entryItems = _context.EntryInfo
+            .Include(b => b.City)
+            .ToList();
+            return entryItems;
+        }
+
         public int[] ChartOne()
         {
-            //Logic is there but now you need to populate List from the database
-            List<DateTime> DateList = _context.EntryInfo.Select(x => x.Date).ToList();
+            List<EntryInfo> entries = GetDataList(_context);
+            List<DateTime> DateList = entries.Select(x => x.Date).ToList();
             List<int> temp = SortArray(DateList);
             return temp.ToArray();
         }
