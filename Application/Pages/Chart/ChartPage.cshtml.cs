@@ -7,6 +7,7 @@ using Application.Data;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Drawing;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Application
 {
@@ -24,16 +25,21 @@ namespace Application
         
         
         public List<DateTime> DateList;
+        public List<int> final;
 
 
-       
 
 
         //-------------------------------First Chart (Bar)-------------------------------------
 
-        
-        
-        
+        public ActionResult MyController()
+        {
+            var addresses = ChartOne();
+            ViewData["addresses"] = addresses;
+            return Page();
+        }
+
+
 
         public List<EntryInfo> GetDataList(ApplicationContext _context)
         {
@@ -47,8 +53,8 @@ namespace Application
         {
             List<EntryInfo> entries = GetDataList(_context);
             List<DateTime> DateList = entries.Select(x => x.Date).ToList();
-            List<int> temp = SortArray(DateList);
-            return temp;
+            final = SortArray(DateList);
+            return final;
         }
 
         
