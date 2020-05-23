@@ -26,10 +26,7 @@ namespace Application
         public List<DateTime> DateList;
 
 
-        public void OnGet()
-        {
-            //Retrive all data to be rendered in view
-        }
+       
 
 
         //-------------------------------First Chart (Bar)-------------------------------------
@@ -81,42 +78,13 @@ namespace Application
 
         //-------------------------------Second Chart (Line)-------------------------------------
 
-        public void SecondNow()
-        {
-            List<Point> pointList = new List<Point>();
-        }
+        
 
         //-------------------------------Third Chart-------------------------------------
 
         //-------------------------------Fourth Chart (Maps API)-------------------------------------
 
-            /*
-        public Dictionary<XElement, XElement> DoNow()
-        {
-            //populate list with address data
-            List<string> addressList = new List<string>();
-            Dictionary<XElement, XElement> LatLngList = new Dictionary<XElement, XElement>();
-
-            foreach(string entry in addressList)
-            {
-                string requestUri = string.Format("https://maps.googleapis.com/maps/api/geocode/xml?key={1}&address={0}&sensor=false", Uri.EscapeDataString(entry), YOUR_API_KEY);
-
-                WebRequest request = WebRequest.Create(requestUri);
-                WebResponse response = request.GetResponse();
-                XDocument xdoc = XDocument.Load(response.GetResponseStream());
-
-                XElement result = xdoc.Element("GeocodeResponse").Element("result");
-                XElement locationElement = result.Element("geometry").Element("location");
-                XElement lat = locationElement.Element("lat");
-                XElement lng = locationElement.Element("lng");
-
-                //add value to 
-                LatLngList.Add(lat, lng);
-            }
-
-            return LatLngList;
-
-        }*/
+        
 
     }
 }

@@ -1,17 +1,11 @@
 ﻿@page
-
-
-@using Newtonsoft.Json
 @model ChartPageModel
 
 @{
     ViewData["Title"] = "ChartPage";
 }
 
-@{
 
-   var vs = @ChartPageModel.ChartOne();
-}
 
 
 
@@ -30,13 +24,6 @@
     <link rel="stylesheet" href="~/css/site.css" />
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
-    <style>
-        /* Set the size of the div element that contains the map */
-        #map {
-            height: 400px; /* The height is 400 pixels */
-            width: 100%; /* The width is the width of the web page */
-        }
-    </style>
 </head>
 
 
@@ -56,15 +43,6 @@
     <div class="grid-container">
         <div class="grid-item">
             <canvas id="myChart"></canvas>
-        </div>
-        <div class="grid-item">
-            <canvas id="stackedLine"></canvas>
-        </div>
-        <div class="grid-item">
-            <canvas id="testLine"></canvas>
-        </div>
-        <div class="grid-item">
-            <div id="map"></div>
         </div>
     </div>
 
@@ -91,29 +69,18 @@
 
     <!---------------------------Chart Scripts-------------------------->
 
-    <script>
-        // Initialize and add the map
-        function initMap() {
-            // The location of Uluru
-            var uluru = { lat: -25.344, lng: 131.036 };
-            // The map, centered at Uluru
-            var map = new google.maps.Map(
-                document.getElementById('map'), { zoom: 4, center: uluru });
-            // The marker, positioned at Uluru
-            var marker = new google.maps.Marker({ position: uluru, map: map });
-        }
-    </script>
+   
     <script>
         var ctx = document.getElementById('myChart').getContext('2d');
         
         var myChart = new Chart(ctx, {
             type: 'bar',
-            data: [@ViewBag.]{
+            data: {
                 labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
                     'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
                 datasets: [{
                     label: '# of Votes',
-                    data: [12],
+                    data: [12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12],
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
                         'rgba(54, 162, 235, 0.2)',
@@ -147,77 +114,6 @@
         });
     </script>
 
-    <script>
-        var ctx = 'stackedLine';
-
-        var stackedLine = new Chart(ctx, {
-            type: 'line',
-            data: [{
-                x: 10,
-                y: 20
-            }, {
-                x: 15,
-                y: 10
-            }],
-            options: {
-                responsive: true,
-                maintainAspectRatio: true,
-                scales: {
-                    yAxes: [{
-                        stacked: true
-                    }]
-                }
-            }
-        });
-    </script>
-
-    <script>
-        var ctx = 'testLine';
-
-        var testLine = new Chart(ctx, {
-            type: 'line',
-            data: [{
-                x: 10,
-                y: 20
-            }, {
-                x: 15,
-                y: 10
-            }],
-            options: {
-                responsive: true,
-                maintainAspectRatio: true,
-                scales: {
-                    yAxes: [{
-                        stacked: true
-                    }]
-                }
-            }
-        });
-    </script>
-
-    <script>
-        var ctx = 'testLinetwo';
-
-        var testLinetwo = new Chart(ctx, {
-            type: 'line',
-            data: [{
-                x: 10,
-                y: 20
-            }, {
-                x: 15,
-                y: 10
-            }],
-            options: {
-                responsive: true,
-                maintainAspectRatio: true,
-                scales: {
-                    yAxes: [{
-                        stacked: true
-                    }]
-                }
-            }
-        });
-    </script>
 
     <!---------------------------Reference Scripts-------------------------->
 
@@ -225,9 +121,6 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/js/Chart.js" asp-append-version="true"></script>
-    <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAuu_QlTSLJQaNXShxwuHtN3vEa4frY2Sg&callback=initMap">
-    </script>
     <script src="~/js/Chart.js"></script>
 
 
