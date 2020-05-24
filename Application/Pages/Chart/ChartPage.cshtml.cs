@@ -32,12 +32,7 @@ namespace Application
 
         //-------------------------------First Chart (Bar)-------------------------------------
 
-        public ActionResult MyController()
-        {
-            var addresses = ChartOne();
-            ViewData["addresses"] = addresses;
-            return Page();
-        }
+        
 
 
 
