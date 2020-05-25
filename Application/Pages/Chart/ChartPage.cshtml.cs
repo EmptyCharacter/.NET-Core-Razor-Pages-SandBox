@@ -32,11 +32,15 @@ namespace Application
 
 
         //-------------------------------First Chart (Bar)-------------------------------------
-
+        public List<int> OnPost()
+        {
+            var obj = ChartOne();
+            return obj;
+        }
         
 
 
-        [HttpGet]
+        
         public List<EntryInfo> GetDataList(ApplicationContext _context)
         {
             var entryItems = _context.EntryInfo
