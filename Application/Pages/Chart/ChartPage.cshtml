@@ -68,9 +68,9 @@
 
 
     <!---------------------------Chart Scripts-------------------------->
-    @{ 
-        var yourJavaScriptArray = @Html.Raw(Json.Serialize(ChartPageModel));
-    }
+    <script>
+         document.getElementById("GetDataLists").click();
+    </script>
 
     <script>
         var ctx = document.getElementById('myChart').getContext('2d');
