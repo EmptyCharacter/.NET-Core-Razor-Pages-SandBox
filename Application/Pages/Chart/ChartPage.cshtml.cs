@@ -9,6 +9,7 @@ using System.Drawing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 
+
 namespace Application
 {
     
@@ -35,7 +36,7 @@ namespace Application
         
 
 
-
+        [HttpGet]
         public List<EntryInfo> GetDataList(ApplicationContext _context)
         {
             var entryItems = _context.EntryInfo
