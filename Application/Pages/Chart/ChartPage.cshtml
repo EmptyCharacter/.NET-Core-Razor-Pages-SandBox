@@ -1,9 +1,14 @@
 ﻿@page
 @{ 
     @functions{
-
+        public List<int> OnPost()
+        { 
+            var obj = ChartOne();
+            return obj;
+        }
             }
 }
+
 @model ChartPageModel
 
 @{
