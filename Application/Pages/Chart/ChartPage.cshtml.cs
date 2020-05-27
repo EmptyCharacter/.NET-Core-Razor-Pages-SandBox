@@ -23,24 +23,26 @@ namespace Application
             _context = context;
         }
 
-        
-        
-        public List<DateTime> DateList;
-        public List<int> final;
-
+        public List<int> DataArray { get; set; }
 
 
 
         //-------------------------------First Chart (Bar)-------------------------------------
-        public List<int> OnPost()
+        public void OnGet()
         {
-            var obj = ChartOne();
-            return obj;
+            DataArray = ChartOne();
         }
-        
 
 
-        
+        public List<int> ChartOne()
+        {
+            List<EntryInfo> entries = GetDataList(_context);
+            List<DateTime> DateList = entries.Select(x => x.Date).ToList();
+            List<int> temp = SortArray(DateList);
+            return temp;
+        }
+
+
         public List<EntryInfo> GetDataList(ApplicationContext _context)
         {
             var entryItems = _context.EntryInfo
@@ -49,19 +51,7 @@ namespace Application
             return entryItems;
         }
 
-        public List<int> ChartOne()
-        {
-            List<EntryInfo> entries = GetDataList(_context);
-            List<DateTime> DateList = entries.Select(x => x.Date).ToList();
-            final = SortArray(DateList);
-            return final;
-        }
-
-        
-
-
-
-
+       
         public List<int> SortArray(List<DateTime> test)
         {
             List<int> tempList = new List<int>();
