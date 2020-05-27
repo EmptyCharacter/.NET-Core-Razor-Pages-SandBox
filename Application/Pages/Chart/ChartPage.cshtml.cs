@@ -46,9 +46,10 @@ namespace Application
         public List<EntryInfo> GetDataList(ApplicationContext _context)
         {
             var entryItems = _context.EntryInfo
-            .Include(b => b.City)
-            .ToList();
+                .Include(b => b.Date)
+                .ToList();
             return entryItems;
+
         }
 
        
