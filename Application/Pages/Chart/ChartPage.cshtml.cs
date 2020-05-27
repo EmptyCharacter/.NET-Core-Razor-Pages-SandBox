@@ -43,12 +43,9 @@ namespace Application
         }
 
 
-        public List<EntryInfo> GetDataList(ApplicationContext _context)
+        public List<EntryInfo> GetDataList()
         {
-            var entryItems = _context.EntryInfo
-                .Include(b => b.Date)
-                .ToList();
-            return entryItems;
+            //retrive an instance of the database context for EntryInfo.dbo
 
         }
 
