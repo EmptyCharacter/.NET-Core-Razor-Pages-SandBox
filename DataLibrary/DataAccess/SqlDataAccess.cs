@@ -5,11 +5,13 @@ using System.Data.SqlClient;
 using System.Linq;
 using Dapper;
 
+
 namespace DataLibrary.DataAccess
 {
     public static class SqlDataAccess
     {
-        public static string GetConnectionString(string connectionName = "ApplicationContext-cbca0afc-a7e0-44c5-bb20-34ae8a99148a")
+        public static string GetConnectionString( 
+            string connectionName = "ApplicationContext")
         {
             return ConfigurationManager.ConnectionStrings[connectionName].ConnectionString;
         }
