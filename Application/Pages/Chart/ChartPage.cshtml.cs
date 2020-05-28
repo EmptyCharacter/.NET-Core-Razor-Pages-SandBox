@@ -8,7 +8,8 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Drawing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
-
+using DataLibrary.DataAccess;
+using DataLibrary;
 
 namespace Application
 {
@@ -36,26 +37,20 @@ namespace Application
 
         public List<int> ChartOne()
         {
-            List<EntryInfo> entries = GetDataList(_context);
+            List<EntryInfo> entries = LoadEntryInfo();
             List<DateTime> DateList = entries.Select(x => x.Date).ToList();
             List<int> temp = SortArray(DateList);
             return temp;
         }
 
-
-        public async List<EntryInfo> GetDataList()
+        public static List<EntryInfo> LoadEntryInfo()
         {
-            //retrive an instance of the database context for EntryInfo.dbo
-            var optionsBuilder = new DbContextOptionsBuilder<ApplicationContext>();
-            optionsBuilder.UseSqlite("Data Source=EntryInfo.db");
-
-            using (var context = new ApplicationContext(optionsBuilder.Options))
-            {
-                var test = await _context.EntryInfo
-                    .Where(b => Enabled)
-            }
-
+            string sql = @"select Id, EmployerName, Position, City, Date, Decision
+                            from dbo.EntryInfo";
+            return SqlDataAccess.LoadData<EntryInfo>(sql);
         }
+
+
 
        
         public List<int> SortArray(List<DateTime> test)
