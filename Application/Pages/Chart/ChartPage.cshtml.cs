@@ -43,9 +43,17 @@ namespace Application
         }
 
 
-        public List<EntryInfo> GetDataList()
+        public async List<EntryInfo> GetDataList()
         {
             //retrive an instance of the database context for EntryInfo.dbo
+            var optionsBuilder = new DbContextOptionsBuilder<ApplicationContext>();
+            optionsBuilder.UseSqlite("Data Source=EntryInfo.db");
+
+            using (var context = new ApplicationContext(optionsBuilder.Options))
+            {
+                var test = await _context.EntryInfo
+                    .Where(b => Enabled)
+            }
 
         }
 
