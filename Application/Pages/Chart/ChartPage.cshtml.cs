@@ -24,7 +24,7 @@ namespace Application
             _context = context;
         }
 
-        public List<int> DataArray { get; set; }
+        public int[] DataArray { get; set; }
 
 
 
@@ -35,12 +35,13 @@ namespace Application
         }
 
 
-        public List<int> ChartOne()
+        public int[] ChartOne()
         {
             List<EntryInfo> entries = LoadEntryInfo();
             List<DateTime> DateList = entries.Select(x => x.Date).ToList();
             List<int> temp = SortArray(DateList);
-            return temp;
+            int[] ints = temp.ToArray();
+            return ints;
         }
 
         public static List<EntryInfo> LoadEntryInfo()
