@@ -7,7 +7,7 @@
 }
 
 
-@Model.DataArray
+
 
 
 
@@ -74,8 +74,33 @@
     </script>
 
     <script>
-        var ctx = document.getElementById('myChart').getContext('2d');
+        $(function () {
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            contentType: 'application/json',
+            url: 'ChartPage.cshtml.cs/ChartOne', // change to your .aspx filename
+            data: '{}',
+            success: function (response) {
+                drawChart(response.d);
+            },
 
+            error: function () {
+                console.error("Error loading data! Please try again.");
+            }
+        });
+    })
+        function drawChart(dataValues) {
+        var issuesResolved = [];
+        for (var i = 0; i < dataValues.length; i++) {
+            issuesResolved[i] = dataValues[i].issuesResolved;
+            
+        }
+  
+
+
+
+        var ctx = document.getElementById('myChart').getContext('2d');
         var myChart = new Chart(ctx, {
             type: 'bar',
             data: {
@@ -83,7 +108,7 @@
                     'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
                 datasets: [{
                     label: '# of Votes',
-                    data: [12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12],
+                    data: issuesResolved,
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
                         'rgba(54, 162, 235, 0.2)',

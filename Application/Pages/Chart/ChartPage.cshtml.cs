@@ -10,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using DataLibrary.DataAccess;
 using DataLibrary;
+using Newtonsoft.Json;
 
 namespace Application
 {
@@ -18,31 +19,43 @@ namespace Application
     {
         
         private readonly Application.Data.ApplicationContext _context;
-        
+
+        public string JSON { get; set; }
+
         public ChartPageModel(ApplicationContext context)
         {
             _context = context;
         }
 
-        public int[] DataArray { get; set; }
+        
 
 
 
         //-------------------------------First Chart (Bar)-------------------------------------
+        
+
         public void OnGet()
         {
-            DataArray = ChartOne();
+            JSON = ChartOne();
         }
 
-
-        public int[] ChartOne()
+        public string ChartOne()
         {
             List<EntryInfo> entries = LoadEntryInfo();
             List<DateTime> DateList = entries.Select(x => x.Date).ToList();
             List<int> temp = SortArray(DateList);
             int[] ints = temp.ToArray();
-            return ints;
+            var serializedObject = Serialize(ints);
+            return serializedObject;
         }
+
+        public string Serialize(int[] vs)
+        {
+            var temp = JsonConvert.SerializeObject(vs);
+            return temp;
+        }
+
+        
 
         public static List<EntryInfo> LoadEntryInfo()
         {
