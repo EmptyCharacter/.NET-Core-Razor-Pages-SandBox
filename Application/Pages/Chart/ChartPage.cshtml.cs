@@ -27,12 +27,17 @@ namespace Application
             _context = context;
         }
 
-        
+        //-------------------------------Data Retrival-------------------------------------
 
 
+        public static List<EntryInfo> LoadEntryInfo()
+        {
+            string sql = @"select Id, EmployerName, Position, City, Date, Decision
+                            from dbo.EntryInfo";
+            return SqlDataAccess.LoadData<EntryInfo>(sql);
+        }
 
         //-------------------------------First Chart (Bar)-------------------------------------
-        
 
         public void OnGet()
         {
@@ -49,24 +54,6 @@ namespace Application
             return serializedObject;
         }
 
-        public string Serialize(int[] vs)
-        {
-            var temp = JsonConvert.SerializeObject(vs);
-            return temp;
-        }
-
-        
-
-        public static List<EntryInfo> LoadEntryInfo()
-        {
-            string sql = @"select Id, EmployerName, Position, City, Date, Decision
-                            from dbo.EntryInfo";
-            return SqlDataAccess.LoadData<EntryInfo>(sql);
-        }
-
-
-
-       
         public List<int> SortArray(List<DateTime> test)
         {
             List<int> tempList = new List<int>();
@@ -85,6 +72,12 @@ namespace Application
 
             }
             return tempList;
+        }
+
+        public string Serialize(int[] vs)
+        {
+            var temp = JsonConvert.SerializeObject(vs);
+            return temp;
         }
 
         //-------------------------------Second Chart (Line)-------------------------------------
