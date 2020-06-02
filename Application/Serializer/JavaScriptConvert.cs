@@ -22,10 +22,10 @@ namespace Application.Serializer
                     ContractResolver = new CamelCasePropertyNamesContractResolver()
                 };
 
-                jsonWriter = false;
+                jsonWriter.QuoteName = false;
                 serializer.Serialize(jsonWriter, value);
 
-                return new HtmlString(stringWriter.ToString);
+                return new HtmlString(stringWriter.ToString());
             }
         }
 
