@@ -61,7 +61,14 @@
     <script>
 
 
-        
+        var testing = [];
+
+        $(function () {
+            $.getJSON("", function()){
+                testing = 
+            });
+
+        });
 
             var ctx = document.getElementById('myChart').getContext('2d');
             var myChart = new Chart(ctx, {
