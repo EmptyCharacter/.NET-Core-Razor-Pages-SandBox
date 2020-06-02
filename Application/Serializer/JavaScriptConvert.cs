@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Application.Serializer
 {
-    public class JavaScriptConvert
+    public static class JavaScriptConvert
     {
         public static IHtmlString SerializeObject(object value)
         {
@@ -25,6 +25,7 @@ namespace Application.Serializer
                 jsonWriter.QuoteName = false;
                 serializer.Serialize(jsonWriter, value);
 
+                //what 
                 return new HtmlString(stringWriter.ToString());
             }
         }
