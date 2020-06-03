@@ -60,15 +60,27 @@
 
     <script>
 
+        $.ajax({
+            type: "GET".
+            url: "/Demo?handler=Send",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                var dvItems = $("dvPostItems");
+                dvItems.empty();
+                $.each(response, function (i, item) {
+                    var $tr = $('<li>').append(item).appendTo(dvItems);
 
-        var testing = [];
+                });
+            },
+            failure: function (response) {
+                alert(response);
+            }
 
-        $(function () {
-            $.getJSON("", function()){
-                testing = 
-            });
 
         });
+
+        
 
             var ctx = document.getElementById('myChart').getContext('2d');
             var myChart = new Chart(ctx, {
