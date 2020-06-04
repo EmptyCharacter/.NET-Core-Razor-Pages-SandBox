@@ -6,6 +6,7 @@
     ViewData["Title"] = "ChartPage";
 }
 
+@Model.JSON
 
 <!DOCTYPE html>
 
@@ -60,26 +61,7 @@
 
     <script>
 
-        $.ajax({
-            type: "GET".
-            url: "/Demo?handler=Send",
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
-            success: function (response) {
-                var dvItems = $("dvPostItems");
-                dvItems.empty();
-                $.each(response, function (i, item) {
-                    var $tr = $('<li>').append(item).appendTo(dvItems);
-
-                });
-            },
-            failure: function (response) {
-                alert(response);
-            }
-
-
-        });
-
+        
         
 
             var ctx = document.getElementById('myChart').getContext('2d');
@@ -90,7 +72,7 @@
                         'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
                     datasets: [{
                         label: 'Months',
-                        data: [12, 12],
+                        data: @Model.JSON,
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.2)',
                             'rgba(54, 162, 235, 0.2)',
