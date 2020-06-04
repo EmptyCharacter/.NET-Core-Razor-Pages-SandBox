@@ -26,6 +26,9 @@ namespace Application
         {
             _context = context;
         }
+        //CHECK TO SEE IF CHART WILL RENDER WITHOUT SERIALIZATION
+
+
 
         //-------------------------------Data Retrival-------------------------------------
 
