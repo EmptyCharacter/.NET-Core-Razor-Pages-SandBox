@@ -36,6 +36,9 @@
         <div class="grid-item">
             <canvas id="myChart"></canvas>
         </div>
+        <div class="grid-item">
+            <canvas id="stackedLine"></canvas>
+        </div>
     </div>
 
 
@@ -60,9 +63,6 @@
     
 
     <script>
-
-        
-        
 
             var ctx = document.getElementById('myChart').getContext('2d');
             var myChart = new Chart(ctx, {
@@ -105,6 +105,19 @@
                 }
             });
         
+    </script>
+    <script>
+        var stackedLine = new Chart(ctx, {
+            type: 'line',
+            data: [12],
+            options: {
+                scales: {
+                    yAxes: [{
+                        stacked: true
+                    }]
+                }
+            }
+        });
     </script>
 
 
