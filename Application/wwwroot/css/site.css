@@ -91,6 +91,17 @@ body {
     width:400px;
 }
 
+.first-chart {
+    width: 55%;
+    margin-right: 2%;
+    float: left;
+}
+
+.second-chart {
+    width: 42%;
+    float: left;
+}
+
 
 /* Set the size of the div element that contains the map */
 #map {
