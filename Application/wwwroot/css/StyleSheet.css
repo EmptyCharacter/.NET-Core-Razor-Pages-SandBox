@@ -1,34 +1,29 @@
 ﻿
 
-
-.container {
-    width: 900px;
-    height: 150px;
+#container {
+    position: relative;
+    border: 1px solid gold;
+    width: 800px;
+    height: 400px;
 }
 
-.first-box {
-    width: 300px;
-    float: left;
-    background: green;
-    height: 150px;
-    margin: 50px
-}
-.first-box canvas{
-  color: #ffffff;
-  padding-left: 80px;
-  padding-top: 50px;
+.part {
+    position: absolute;
 }
 
-.second-box {
-    width: 300px;
-    height: 150px;
-    float: right;
-    background: blue;
-    margin: 50px
+#canvasBottom {
+    left: 0;
+    border: 2px solid red;
 }
 
-.second-box canvas{
-  color: #ffffff;
-  padding-left: 110px;
-  padding-top: 50px;
+#canvasLeft {
+    left: 0;
+    border: 1px solid green;
 }
+
+#canvasRight {
+    left: 300px;
+    border: 1px solid blue;
+}
+
+; 
