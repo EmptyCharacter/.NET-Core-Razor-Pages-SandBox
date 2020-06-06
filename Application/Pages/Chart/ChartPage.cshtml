@@ -15,11 +15,17 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Application</title>
-    
-    <link rel="stylesheet" href="~/css/site.css" />
-    <link rel="stylesheet" href="~/css/StyleSheet.css"/>
 
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/StyleSheet.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+    <style>
+        /* Set the size of the div element that contains the map */
+        #map {
+            height: 400px; /* The height is 400 pixels */
+            width: 100%; /* The width is the width of the web page */
+        }
+    </style>
 </head>
 
 
@@ -35,11 +41,12 @@
 
     <div class="scontainer">
         <div class="first-box">
-            <canvas  id="canvasRight"></canvas>
+            <canvas id="canvasRight"></canvas>
         </div>
         <div class="second-box">
             <canvas id="canvasLeft"></canvas>
         </div>
+        <div id="map"/>
 
     </div>
 
@@ -99,7 +106,31 @@
         var ctx = document.getElementById('canvasRight').getContext('2d');
         var stackedLine = new Chart(ctx, {
             type: 'line',
-            data: [12],
+            data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                        'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                    datasets: [{
+                        label: 'Months',
+                        data: @Model.JSON,
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
             options: {
                 scales: {
                     yAxes: [{
@@ -110,9 +141,26 @@
         });
     </script>
 
+    <script>
+        // Initialize and add the map
+        function initMap() {
+            // The location of Uluru
+            var uluru = { lat: -25.344, lng: 131.036 };
+            // The map, centered at Uluru
+            var map = new google.maps.Map(
+                document.getElementById('map'), { zoom: 4, center: uluru });
+            // The marker, positioned at Uluru
+            var marker = new google.maps.Marker({ position: uluru, map: map });
+        }
+    </script>
+
+
+
 
     <!---------------------------Reference Scripts-------------------------->
-
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAuu_QlTSLJQaNXShxwuHtN3vEa4frY2Sg&callback=initMap">
+    </script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

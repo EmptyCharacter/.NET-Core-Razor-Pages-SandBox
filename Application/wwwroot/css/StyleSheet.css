@@ -3,7 +3,7 @@
 #container {
     position: relative;
     border: 1px solid gold;
-    width: 800px;
+    width: 400px;
     height: 400px;
 }
 
@@ -17,13 +17,16 @@
 }
 
 #canvasLeft {
+    height:100px;
+    width:100px;
     left: 0;
     border: 1px solid green;
 }
 
 #canvasRight {
+    height: 100px;
+    width: 100px;
     left: 300px;
     border: 1px solid blue;
 }
 
-; 
