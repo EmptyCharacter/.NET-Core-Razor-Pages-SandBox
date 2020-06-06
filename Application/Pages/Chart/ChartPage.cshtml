@@ -15,8 +15,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Application</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/StyleSheet.css"/>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
 </head>
@@ -33,35 +34,22 @@
 
 
     <div class="container">
-        <div class="chart1">
+        <div class="first-box">
             <canvas id="myChart"></canvas>
         </div>
-        <div class="chart2">
+        <div class="second-box">
             <canvas id="stackedLine"></canvas>
         </div>
-        
+
     </div>
 
-
-
-    <div class="container">
-        <main role="main" class="pb-3">
-
-        </main>
-    </div>
-    <!---------------------------Footer-------------------------->
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2020 - Application - <a asp-area="" asp-page="/Privacy">Privacy</a>
-        </div>
-    </footer>
 
 
 
 
 
     <!---------------------------Chart Scripts-------------------------->
-    
+
 
     <script>
 
@@ -105,7 +93,7 @@
                     }
                 }
             });
-        
+
     </script>
     <script>
         var stackedLine = new Chart(ctx, {
