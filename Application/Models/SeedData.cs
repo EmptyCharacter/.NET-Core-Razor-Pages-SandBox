@@ -36,7 +36,7 @@ namespace Application.Models
                         EmployerName = "Pack Corp",
                         Position = "Software Developer",
                         City = "San Francisco",
-                        Date = DateTime.Parse("2020-2-13"),
+                        Date = DateTime.Parse("2020-4-13"),
                         Decision = "Open"
                     },
 
@@ -108,7 +108,7 @@ namespace Application.Models
                         EmployerName = "Randow",
                         Position = "Remote Software Developer",
                         City = "California",
-                        Date = DateTime.Parse("2020-10-13"),
+                        Date = DateTime.Parse("2020-9-13"),
                         Decision = "Open"
                     },
 

@@ -20,7 +20,8 @@ namespace Application
         
         private readonly Application.Data.ApplicationContext _context;
 
-        public string JSON { get; set; }
+        public string barChart { get; set; }
+        public string lineChart { get; set; }
 
         public ChartPageModel(ApplicationContext context)
         {
@@ -44,7 +45,7 @@ namespace Application
 
         public void OnGet()
         {
-            JSON = ChartOne();
+            barChart = ChartOne();
         }
 
         public string ChartOne()
