@@ -5,11 +5,7 @@ using System.Linq;
 using Application.Models;
 using Application.Data;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.Drawing;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Mvc;
 using DataLibrary.DataAccess;
-using DataLibrary;
 using Newtonsoft.Json;
 
 namespace Application
