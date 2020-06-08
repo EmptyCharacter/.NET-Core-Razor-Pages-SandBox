@@ -88,6 +88,10 @@ namespace Application
 
         //-------------------------------Fourth Chart (Maps API)-------------------------------------
 
+        public void LatLngConvert()
+        {
+
+        }
         
 
     }
