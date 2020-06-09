@@ -20,9 +20,12 @@ namespace Application
         
         private readonly Application.Data.ApplicationContext _context;
 
-        
+        private List<DateTime> DateList;
+        List<String> CityList;
+
         public string barChart { get; set; }
-        
+        public List<Google.Type.LatLng> locations { get; set; }
+
 
         public ChartPageModel(ApplicationContext context)
         {
@@ -42,29 +45,27 @@ namespace Application
             return SqlDataAccess.LoadData<EntryInfo>(sql);
         }
 
+        public void PopulateCollections()
+        {
+            //Load data from model
+            List<EntryInfo> entries = LoadEntryInfo();
+            DateList = entries.Select(x => x.Date).ToList();
+            CityList = entries.Select(x => x.City).ToList();
+        }
+
         //-------------------------------First Chart (Bar)-------------------------------------
 
         public void OnGet()
         {
-            barChart = ChartOne();
+            PopulateCollections();
+
+            barChart = Serialize(SortArray(DateList));
+            locations = LatLngConvert(CityList);
         }
 
-        public string ChartOne()
-        {
-            //Load data from model
-            List<EntryInfo> entries = LoadEntryInfo();
-            List<DateTime> DateList = entries.Select(x => x.Date).ToList();
-            List<String> CityList = entries.Select(x => x.City).ToList();
-            
-            //Convert data from model for view
-            List<Google.Type.LatLng> test = LatLngConvert(CityList);
-            List<int> temp = SortArray(DateList);
-            int[] ints = temp.ToArray();
-            var serializedObject = Serialize(ints);
-            return serializedObject;
-        }
+        
 
-        public List<int> SortArray(List<DateTime> test)
+        public int[] SortArray(List<DateTime> test)
         {
             List<int> tempList = new List<int>();
             for (var i = 1; i <= 12; i++)
@@ -81,7 +82,7 @@ namespace Application
                 tempList.Add(counter);
 
             }
-            return tempList;
+            return tempList.ToArray();
         }
 
         public string Serialize(int[] vs)
