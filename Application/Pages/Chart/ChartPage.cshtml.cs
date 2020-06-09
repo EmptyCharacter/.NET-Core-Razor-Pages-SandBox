@@ -22,7 +22,7 @@ namespace Application
 
         
         public string barChart { get; set; }
-        public string lineChart { get; set; }
+        
 
         public ChartPageModel(ApplicationContext context)
         {
@@ -51,9 +51,13 @@ namespace Application
 
         public string ChartOne()
         {
+            //Load data from model
             List<EntryInfo> entries = LoadEntryInfo();
             List<DateTime> DateList = entries.Select(x => x.Date).ToList();
             List<String> CityList = entries.Select(x => x.City).ToList();
+            
+            //Convert data from model for view
+            List<Google.Type.LatLng> test = LatLngConvert(CityList);
             List<int> temp = SortArray(DateList);
             int[] ints = temp.ToArray();
             var serializedObject = Serialize(ints);
@@ -94,11 +98,10 @@ namespace Application
 
         //-------------------------------Fourth Chart (Maps API)-------------------------------------
 
-        public void LatLngConvert()
+        public List<Google.Type.LatLng> LatLngConvert(List<String> cityList)
         {
 
-            Google.Type.LatLng
-            ArrayList locations = new ArrayList();
+            List<Google.Type.LatLng> locations;
 
             string address = "123 something st, somewhere";
             string requestUri = string.Format("https://maps.googleapis.com/maps/api/geocode/xml?key={1}&address={0}&sensor=false", Uri.EscapeDataString(address), "AIzaSyAuu_QlTSLJQaNXShxwuHtN3vEa4frY2Sg");
@@ -111,6 +114,8 @@ namespace Application
             XElement locationElement = result.Element("geometry").Element("location");
             XElement lat = locationElement.Element("lat");
             XElement lng = locationElement.Element("lng");
+
+            return locations;
         }
         
 
