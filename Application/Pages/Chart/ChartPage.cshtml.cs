@@ -9,6 +9,8 @@ using DataLibrary.DataAccess;
 using Newtonsoft.Json;
 using System.Net;
 using System.Xml.Linq;
+using System.Collections;
+
 
 namespace Application
 {
@@ -18,6 +20,7 @@ namespace Application
         
         private readonly Application.Data.ApplicationContext _context;
 
+        
         public string barChart { get; set; }
         public string lineChart { get; set; }
 
@@ -50,6 +53,7 @@ namespace Application
         {
             List<EntryInfo> entries = LoadEntryInfo();
             List<DateTime> DateList = entries.Select(x => x.Date).ToList();
+            List<String> CityList = entries.Select(x => x.City).ToList();
             List<int> temp = SortArray(DateList);
             int[] ints = temp.ToArray();
             var serializedObject = Serialize(ints);
@@ -92,6 +96,10 @@ namespace Application
 
         public void LatLngConvert()
         {
+
+            Google.Type.LatLng
+            ArrayList locations = new ArrayList();
+
             string address = "123 something st, somewhere";
             string requestUri = string.Format("https://maps.googleapis.com/maps/api/geocode/xml?key={1}&address={0}&sensor=false", Uri.EscapeDataString(address), "AIzaSyAuu_QlTSLJQaNXShxwuHtN3vEa4frY2Sg");
 
