@@ -7,6 +7,8 @@ using Application.Data;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using DataLibrary.DataAccess;
 using Newtonsoft.Json;
+using System.Net;
+using System.Xml.Linq;
 
 namespace Application
 {
@@ -90,7 +92,17 @@ namespace Application
 
         public void LatLngConvert()
         {
+            string address = "123 something st, somewhere";
+            string requestUri = string.Format("https://maps.googleapis.com/maps/api/geocode/xml?key={1}&address={0}&sensor=false", Uri.EscapeDataString(address), "AIzaSyAuu_QlTSLJQaNXShxwuHtN3vEa4frY2Sg");
 
+            WebRequest request = WebRequest.Create(requestUri);
+            WebResponse response = request.GetResponse();
+            XDocument xdoc = XDocument.Load(response.GetResponseStream());
+
+            XElement result = xdoc.Element("GeocodeResponse").Element("result");
+            XElement locationElement = result.Element("geometry").Element("location");
+            XElement lat = locationElement.Element("lat");
+            XElement lng = locationElement.Element("lng");
         }
         
 
