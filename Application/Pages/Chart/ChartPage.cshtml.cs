@@ -31,8 +31,7 @@ namespace Application
         {
             _context = context;
         }
-        //CHECK TO SEE IF CHART WILL RENDER WITHOUT SERIALIZATION
-
+        
 
 
         //-------------------------------Data Retrival-------------------------------------
@@ -52,9 +51,7 @@ namespace Application
             DateList = entries.Select(x => x.Date).ToList();
             CityList = entries.Select(x => x.City).ToList();
         }
-
-        //-------------------------------First Chart (Bar)-------------------------------------
-
+        
         public void OnGet()
         {
             PopulateCollections();
@@ -63,7 +60,7 @@ namespace Application
             locations = LatLngConvert(CityList);
         }
 
-        
+        //-------------------------------First Chart (Bar)-------------------------------------
 
         public int[] SortArray(List<DateTime> test)
         {
@@ -103,18 +100,23 @@ namespace Application
         {
 
             List<Google.Type.LatLng> locations;
+            foreach(String s in cityList)
+            {
+                
+                string requestUri = string.Format("https://maps.googleapis.com/maps/api/geocode/xml?key={1}&address={0}&sensor=false", Uri.EscapeDataString(s), "AIzaSyAuu_QlTSLJQaNXShxwuHtN3vEa4frY2Sg");
 
-            string address = "123 something st, somewhere";
-            string requestUri = string.Format("https://maps.googleapis.com/maps/api/geocode/xml?key={1}&address={0}&sensor=false", Uri.EscapeDataString(address), "AIzaSyAuu_QlTSLJQaNXShxwuHtN3vEa4frY2Sg");
+                WebRequest request = WebRequest.Create(requestUri);
+                WebResponse response = request.GetResponse();
+                XDocument xdoc = XDocument.Load(response.GetResponseStream());
 
-            WebRequest request = WebRequest.Create(requestUri);
-            WebResponse response = request.GetResponse();
-            XDocument xdoc = XDocument.Load(response.GetResponseStream());
+                XElement result = xdoc.Element("GeocodeResponse").Element("result");
+                XElement locationElement = result.Element("geometry").Element("location");
+                XElement lat = locationElement.Element("lat");
+                XElement lng = locationElement.Element("lng");
+                Google.Type.LatLng spme = new Google.Type.LatLng(lat, lng);
+            }
 
-            XElement result = xdoc.Element("GeocodeResponse").Element("result");
-            XElement locationElement = result.Element("geometry").Element("location");
-            XElement lat = locationElement.Element("lat");
-            XElement lng = locationElement.Element("lng");
+            
 
             return locations;
         }
