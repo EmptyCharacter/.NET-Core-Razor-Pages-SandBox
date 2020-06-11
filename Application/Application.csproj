@@ -28,6 +28,10 @@
     <ProjectReference Include="..\DataLibrary\DataLibrary.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Struct\" />
+  </ItemGroup>
+
 
 
 </Project>
