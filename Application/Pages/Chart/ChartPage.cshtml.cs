@@ -56,13 +56,13 @@ namespace Application
         {
             PopulateCollections();
 
-            barChart = Serialize(SortArray(DateList));
-            //locations = Serialize(ExtractMarkers(CityList));
+            barChart = JsonConvert.SerializeObject(SortDates(DateList));
+            //locations = JsonConvert.SerializeObject(ExtractMarkers(CityList));
         }
 
         //-------------------------------First Chart (Bar)-------------------------------------
 
-        public List<T> SortArray(List<DateTime> test)
+        public List<int> SortDates(List<DateTime> test)
         {
             List<int> tempList = new List<int>();
             for (var i = 1; i <= 12; i++)
@@ -79,14 +79,10 @@ namespace Application
                 tempList.Add(counter);
 
             }
-            return tempList();
+            return tempList;
         }
 
-        public string Serialize(List<T> vs)
-        {
-            var temp = JsonConvert.SerializeObject(vs);
-            return temp;
-        }
+        
 
         //-------------------------------Second Chart (Line)-------------------------------------
 
@@ -119,7 +115,7 @@ namespace Application
             }
                
             
-            return list.ToArray();
+            return list;
         }*/
 
         
