@@ -57,7 +57,7 @@ namespace Application
             PopulateCollections();
 
             barChart = JsonConvert.SerializeObject(SortDates(DateList));
-            //locations = JsonConvert.SerializeObject(ExtractMarkers(CityList));
+            locations = JsonConvert.SerializeObject(ExtractMarkers(CityList));
         }
 
         //-------------------------------First Chart (Bar)-------------------------------------
@@ -92,7 +92,7 @@ namespace Application
 
         //-------------------------------Fourth Chart (Maps API)-------------------------------------
 
-        /*public List<KeyValuePair<Double, Double>> ExtractMarkers(List<String> cityList)
+        public List<KeyValuePair<Double, Double>> ExtractMarkers(List<String> cityList)
         {
             List<KeyValuePair<Double, Double>> list = new List<KeyValuePair<Double, Double>>();
 
@@ -110,13 +110,13 @@ namespace Application
                 XElement locationElement = result.Element("geometry").Element("location");
                 XElement lat = locationElement.Element("lat");
                 XElement lng = locationElement.Element("lng");
-                list.Add((Double)lat, (Double)lng);
+                list.Add(new KeyValuePair<Double, Double>((Double)lat, (Double)lng));
                 
             }
                
             
             return list;
-        }*/
+        }
 
         
         
