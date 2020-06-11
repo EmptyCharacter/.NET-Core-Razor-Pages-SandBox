@@ -24,7 +24,7 @@ namespace Application
         private List<String> CityList;
 
         public string barChart { get; set; }
-        public Dictionary<XElement, XElement> locations { get; set; }
+        public string locations { get; set; }
 
 
         public ChartPageModel(ApplicationContext context)
@@ -57,12 +57,12 @@ namespace Application
             PopulateCollections();
 
             barChart = Serialize(SortArray(DateList));
-            locations = ExtractMarkers(CityList);
+            //locations = Serialize(ExtractMarkers(CityList));
         }
 
         //-------------------------------First Chart (Bar)-------------------------------------
 
-        public int[] SortArray(List<DateTime> test)
+        public List<T> SortArray(List<DateTime> test)
         {
             List<int> tempList = new List<int>();
             for (var i = 1; i <= 12; i++)
@@ -79,10 +79,10 @@ namespace Application
                 tempList.Add(counter);
 
             }
-            return tempList.ToArray();
+            return tempList();
         }
 
-        public string Serialize(int[] vs)
+        public string Serialize(List<T> vs)
         {
             var temp = JsonConvert.SerializeObject(vs);
             return temp;
@@ -96,12 +96,12 @@ namespace Application
 
         //-------------------------------Fourth Chart (Maps API)-------------------------------------
 
-        public Dictionary<XElement, XElement> ExtractMarkers(List<String> cityList)
+        /*public List<KeyValuePair<Double, Double>> ExtractMarkers(List<String> cityList)
         {
+            List<KeyValuePair<Double, Double>> list = new List<KeyValuePair<Double, Double>>();
 
-            
-            Dictionary<XElement, XElement> list = new Dictionary<XElement, XElement>();
-            foreach(String c in cityList)
+
+            foreach (String c in cityList)
             {
                 
                 string requestUri = string.Format("https://maps.googleapis.com/maps/api/geocode/xml?key={1}&address={0}&sensor=true", Uri.EscapeDataString(c), "AIzaSyDT7EgDFjSCDMca5KRNFx6TdL5XlNCQAf8");
@@ -114,18 +114,15 @@ namespace Application
                 XElement locationElement = result.Element("geometry").Element("location");
                 XElement lat = locationElement.Element("lat");
                 XElement lng = locationElement.Element("lng");
-                list.Add(lat, lng);
+                list.Add((Double)lat, (Double)lng);
                 
             }
                
             
-            return list;
-        }
+            return list.ToArray();
+        }*/
 
-        public Dictionary<Double, Double> LatLngConvert(Dictionary<XElement, XElement> tempList)
-        {
-            
-        }
+        
         
 
     }

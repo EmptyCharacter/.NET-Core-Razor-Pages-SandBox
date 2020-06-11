@@ -107,7 +107,7 @@ namespace Application.Models
                     {
                         EmployerName = "Randow",
                         Position = "Remote Software Developer",
-                        City = "California",
+                        City = "Hawaii",
                         Date = DateTime.Parse("2020-9-13"),
                         Decision = "Open"
                     },
