@@ -104,7 +104,7 @@ namespace Application
             foreach(String c in cityList)
             {
                 
-                string requestUri = string.Format("https://maps.googleapis.com/maps/api/geocode/xml?key={1}&address={0}&sensor=true", Uri.EscapeDataString(c), "AIzaSyAuu_QlTSLJQaNXShxwuHtN3vEa4frY2Sg");
+                string requestUri = string.Format("https://maps.googleapis.com/maps/api/geocode/xml?key={1}&address={0}&sensor=true", Uri.EscapeDataString(c), "AIzaSyDT7EgDFjSCDMca5KRNFx6TdL5XlNCQAf8");
 
                 WebRequest request = WebRequest.Create(requestUri);
                 WebResponse response = request.GetResponse();
