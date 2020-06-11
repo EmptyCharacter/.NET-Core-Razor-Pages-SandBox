@@ -99,7 +99,7 @@ namespace Application
         public List<Google.Type.LatLng> LatLngConvert(List<String> cityList)
         {
 
-            List<Google.Type.LatLng> locations;
+            List<Google.Type.LatLng> temp;
             foreach(String s in cityList)
             {
                 
@@ -115,10 +115,10 @@ namespace Application
                 XElement lng = locationElement.Element("lng");
                 Google.Type.LatLng spme = new Google.Type.LatLng(lat, lng);
             }
-
+               
             
 
-            return locations;
+            return temp;
         }
         
 
