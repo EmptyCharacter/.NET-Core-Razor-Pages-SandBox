@@ -21,10 +21,10 @@ namespace Application
         private readonly Application.Data.ApplicationContext _context;
 
         private List<DateTime> DateList;
-        List<String> CityList;
+        private List<String> CityList;
 
         public string barChart { get; set; }
-        public Dictionary<XElement, XElement> sjdfkjdsf { get; set; }
+        public Dictionary<XElement, XElement> locations { get; set; }
 
 
         public ChartPageModel(ApplicationContext context)
@@ -57,7 +57,7 @@ namespace Application
             PopulateCollections();
 
             barChart = Serialize(SortArray(DateList));
-            //locations = LatLngConvert(CityList);
+            locations = LatLngConvert(CityList);
         }
 
         //-------------------------------First Chart (Bar)-------------------------------------
@@ -104,7 +104,7 @@ namespace Application
             foreach(String c in cityList)
             {
                 
-                string requestUri = string.Format("https://maps.googleapis.com/maps/api/geocode/xml?key={1}&address={0}&sensor=false", Uri.EscapeDataString(c), "AIzaSyAuu_QlTSLJQaNXShxwuHtN3vEa4frY2Sg");
+                string requestUri = string.Format("https://maps.googleapis.com/maps/api/geocode/xml?key={1}&address={0}&sensor=true", Uri.EscapeDataString(c), "AIzaSyAuu_QlTSLJQaNXShxwuHtN3vEa4frY2Sg");
 
                 WebRequest request = WebRequest.Create(requestUri);
                 WebResponse response = request.GetResponse();
