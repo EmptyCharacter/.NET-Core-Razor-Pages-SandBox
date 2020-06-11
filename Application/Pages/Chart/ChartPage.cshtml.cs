@@ -57,7 +57,7 @@ namespace Application
             PopulateCollections();
 
             barChart = Serialize(SortArray(DateList));
-            locations = LatLngConvert(CityList);
+            locations = ExtractMarkers(CityList);
         }
 
         //-------------------------------First Chart (Bar)-------------------------------------
@@ -96,7 +96,7 @@ namespace Application
 
         //-------------------------------Fourth Chart (Maps API)-------------------------------------
 
-        public Dictionary<XElement, XElement> LatLngConvert(List<String> cityList)
+        public Dictionary<XElement, XElement> ExtractMarkers(List<String> cityList)
         {
 
             
@@ -120,6 +120,11 @@ namespace Application
                
             
             return list;
+        }
+
+        public Dictionary<Double, Double> LatLngConvert(Dictionary<XElement, XElement> tempList)
+        {
+            
         }
         
 
