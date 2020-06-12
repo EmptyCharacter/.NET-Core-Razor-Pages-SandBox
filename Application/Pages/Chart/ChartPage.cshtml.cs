@@ -10,7 +10,7 @@ using Newtonsoft.Json;
 using System.Net;
 using System.Xml.Linq;
 using System.Collections;
-using Google.Type;
+
 
 namespace Application
 {
@@ -92,7 +92,7 @@ namespace Application
 
         //-------------------------------Fourth Chart (Maps API)-------------------------------------
 
-        public List<KeyValuePair<Double, Double>> ExtractMarkers(List<String> cityList)
+        public KeyValuePair<Double, Double>[] ExtractMarkers(List<String> cityList)
         {
             List<KeyValuePair<Double, Double>> list = new List<KeyValuePair<Double, Double>>();
 
@@ -117,7 +117,7 @@ namespace Application
             
 
 
-            return list;
+            return list.ToArray();
         }
 
         
