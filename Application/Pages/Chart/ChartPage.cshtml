@@ -39,13 +39,23 @@
 
 
     <div class="container">
-        <div class="card">
-            <canvas id="canvasRight" width="400" height="400"></canvas>
+        <div class="row">
+            <div class="col-6">
+                <canvas id="canvasRight" width="400" height="400"></canvas>
+            </div>
+            <div class="col-6">
+                <canvas id="canvasLeft" width="400" height="400"></canvas>
+            </div>
         </div>
-        <div class="card">
-            <canvas id="canvasLeft" width="400" height="400"></canvas>
+        <div class="row">
+            <div class="col-6">
+                <div id="map"></div>
+            </div>
+            <div class="col-6">
+                <canvas id="canvasTop" width="400" height="400"></canvas>
+            </div>
         </div>
-        <div id="map"/>
+        
 
     </div>
 
@@ -101,6 +111,97 @@
             });
 
     </script>
+
+    <script>
+
+            var ctx = document.getElementById('canvasTop').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                        'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                    datasets: [{
+                        label: 'Months',
+                        data: @Model.barChart,
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
+
+    </script>
+
+    <script>
+
+            var ctx = document.getElementById('canvasBottom').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                        'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                    datasets: [{
+                        label: 'Months',
+                        data: @Model.barChart,
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
+
+    </script>
+
     <script>
         var ctx = document.getElementById('canvasRight').getContext('2d');
         var stackedLine = new Chart(ctx, {
@@ -153,22 +254,12 @@
             var map = new google.maps.Map(
                 document.getElementById('map'), { zoom: 4, center: uluru });
             // The marker, positioned at Uluru
-            var p = @Model.locations;
-            var as = JSON.parse(p);
-            function setMarkers(map) {
-                for (var i = 0; i < results.features.length; i++) {
-                    var coords = results.features[i].geometry.coordinates;
-                    var latLng = new google.maps.LatLng(coords[1], coords[0]);
-                    var marker = new google.maps.Marker({
-                        position: latLng,
-                        map: map
-                    });
-                }
-            }
+             var marker = new google.maps.Marker({position: uluru, map: map});
             
 
 
-            
+
+
         }
     </script>
 
