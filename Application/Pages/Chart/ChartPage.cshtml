@@ -6,8 +6,6 @@
     ViewData["Title"] = "ChartPage";
 }
 
-@Model.locations
-
 
 <!DOCTYPE html>
 
@@ -40,12 +38,12 @@
 
 
 
-    <div class="scontainer">
-        <div class="first-box">
-            <canvas id="canvasRight"></canvas>
+    <div class="container">
+        <div class="card">
+            <canvas id="canvasRight" width="400" height="400"></canvas>
         </div>
-        <div class="second-box">
-            <canvas id="canvasLeft"></canvas>
+        <div class="card">
+            <canvas id="canvasLeft" width="400" height="400"></canvas>
         </div>
         <div id="map"/>
 
@@ -91,7 +89,7 @@
                 },
                 options: {
                     responsive: true,
-                    maintainAspectRatio: false,
+                    maintainAspectRatio: true,
                     scales: {
                         yAxes: [{
                             ticks: {
@@ -133,9 +131,13 @@
                     }]
                 },
             options: {
+                responsive: true,
+                maintainAspectRatio: false,
                 scales: {
                     yAxes: [{
-                        stacked: true
+                        ticks: {
+                            beginAtZero: true
+                        }
                     }]
                 }
             }
