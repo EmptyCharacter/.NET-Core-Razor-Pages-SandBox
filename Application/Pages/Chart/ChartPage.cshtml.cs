@@ -92,9 +92,9 @@ namespace Application
 
         //-------------------------------Fourth Chart (Maps API)-------------------------------------
 
-        public KeyValuePair<Double, Double>[] ExtractMarkers(List<String> cityList)
+        public LatLng[] ExtractMarkers(List<String> cityList)
         {
-            List<KeyValuePair<Double, Double>> list = new List<KeyValuePair<Double, Double>>();
+            List<LatLng> tempList = new List<LatLng>();
             
 
             foreach (String c in cityList)
@@ -110,14 +110,16 @@ namespace Application
                 XElement locationElement = result.Element("geometry").Element("location");
                 XElement lat = locationElement.Element("lat");
                 XElement lng = locationElement.Element("lng");
-                list.Add(new KeyValuePair<Double, Double>((Double)lat, (Double)lng));
+                tempList.Add(new LatLng 
+                {Latitude = (Double)lat,
+                 Longitude = (Double)lng});
                 
             }
 
             
 
 
-            return list.ToArray();
+            return tempList.ToArray();
         }
 
         

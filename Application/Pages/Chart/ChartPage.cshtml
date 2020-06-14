@@ -5,7 +5,7 @@
 @{
     ViewData["Title"] = "ChartPage";
 }
-
+@Model.locations
 
 
 <!DOCTYPE html>
@@ -257,13 +257,13 @@
             // The marker, positioned at Uluru
             //var marker = new google.maps.Marker({position: uluru, map: map});
 
-            var markers = locations.map(function (@Model.locations, i) {
-                return new google.maps.Marker({
-                    position: @Model.locations,
-                    label: labels[i % labels.length]
+            var locations = JSON.parse(@Model.locations);
+            var marker, i;
+            for (i = 0; i < locations.length; i++) {
+                marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                    map: map
                 });
-            });
-
 
 
 
