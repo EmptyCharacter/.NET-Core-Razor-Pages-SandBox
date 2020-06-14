@@ -7,6 +7,7 @@
 }
 
 
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -21,7 +22,7 @@
     <style>
         /* Set the size of the div element that contains the map */
         #map {
-            height: 400px; /* The height is 400 pixels */
+            height: 300px; /* The height is 400 pixels */
             width: 100%; /* The width is the width of the web page */
         }
     </style>
@@ -41,10 +42,10 @@
     <div class="container">
         <div class="row">
             <div class="col-6">
-                <canvas id="canvasRight" width="400" height="400"></canvas>
+                <canvas id="canvasRight" width="300" height="300"></canvas>
             </div>
             <div class="col-6">
-                <canvas id="canvasLeft" width="400" height="400"></canvas>
+                <canvas id="canvasLeft" width="300" height="300"></canvas>
             </div>
         </div>
         <div class="row">
@@ -52,7 +53,7 @@
                 <div id="map"></div>
             </div>
             <div class="col-6">
-                <canvas id="canvasTop" width="400" height="400"></canvas>
+                <canvas id="canvasTop" width="300" height="300"></canvas>
             </div>
         </div>
         
@@ -254,8 +255,14 @@
             var map = new google.maps.Map(
                 document.getElementById('map'), { zoom: 4, center: uluru });
             // The marker, positioned at Uluru
-             var marker = new google.maps.Marker({position: uluru, map: map});
-            
+            //var marker = new google.maps.Marker({position: uluru, map: map});
+
+            var markers = locations.map(function (@Model.locations, i) {
+                return new google.maps.Marker({
+                    position: @Model.locations,
+                    label: labels[i % labels.length]
+                });
+            });
 
 
 

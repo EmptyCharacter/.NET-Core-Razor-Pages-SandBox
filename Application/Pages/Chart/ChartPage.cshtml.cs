@@ -95,7 +95,7 @@ namespace Application
         public KeyValuePair<Double, Double>[] ExtractMarkers(List<String> cityList)
         {
             List<KeyValuePair<Double, Double>> list = new List<KeyValuePair<Double, Double>>();
-
+            
 
             foreach (String c in cityList)
             {
