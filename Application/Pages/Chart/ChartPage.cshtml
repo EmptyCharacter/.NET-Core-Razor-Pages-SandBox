@@ -22,7 +22,7 @@
     <style>
         /* Set the size of the div element that contains the map */
         #map {
-            height: 300px; /* The height is 400 pixels */
+            height: 400px; /* The height is 400 pixels */
             width: 100%; /* The width is the width of the web page */
         }
     </style>
@@ -257,20 +257,18 @@
             // The marker, positioned at Uluru
             //var marker = new google.maps.Marker({position: uluru, map: map});
 
-            var oldLocations = JSON.parse((@Model.locations).Replace(/&quot;/g,'"'));
-            var locations = new Array();
-            for (var row = 0; row < oldLocations.length; row++) {
-                for (var col = 0; col < oldLocations[row].length; col++) {
-                    locations[row][col] = oldLocations[row][col];
-                }
-            }
+            var ldLocations = JSON.parse((@Model.locations).replace(/&quot;Latitude&quot;:/g, '"'));
+            var oldLocations = JSON.parse((ldLocations).replace(/&quot;Longitude&quot;:/g, '"'));
+            
+            
             
             var marker, i;
             for (i = 0; i < oldLocations.length; i++) {
                 marker = new google.maps.Marker({
-                    position: new google.maps.LatLng(oldLocations[i][1], oldLocations[i]),
+                    position: new google.maps.LatLng(oldLocations[i][1], oldLocations[i][2]),
                     map: map
                 });
+            
 
 
 
