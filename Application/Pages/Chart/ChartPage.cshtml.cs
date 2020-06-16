@@ -57,7 +57,7 @@ namespace Application
             PopulateCollections();
 
             barChart = JsonConvert.SerializeObject(SortDates(DateList));
-            locations = JsonConvert.SerializeObject(ExtractMarkers(CityList));
+            locations = regexString(JsonConvert.SerializeObject(ExtractMarkers(CityList)));
         }
 
         //-------------------------------First Chart (Bar)-------------------------------------
@@ -91,6 +91,16 @@ namespace Application
         //-------------------------------Third Chart-------------------------------------
 
         //-------------------------------Fourth Chart (Maps API)-------------------------------------
+        public string regexString(string str)
+        {
+            string temp1;
+            string temp2;
+            temp1 = str.Replace("\"Latitude", string.Empty);
+            temp2 = temp1.Replace("\"Longitude", string.Empty);
+            return temp2;
+
+
+        }
 
         public LatLng[] ExtractMarkers(List<String> cityList)
         {
@@ -117,8 +127,6 @@ namespace Application
             }
 
             
-
-
             return tempList.ToArray();
         }
 
