@@ -257,17 +257,24 @@
             // The marker, positioned at Uluru
             //var marker = new google.maps.Marker({position: uluru, map: map});
 
-            var ldLocations = JSON.parse((@Model.locations).replace(/&quot;Latitude&quot;:/g, '"'));
-            var oldLocations = JSON.parse((ldLocations).replace(/&quot;Longitude&quot;:/g, '"'));
+            var oldLocations = JSON.parse((@Model.locations).replace(/&quot;/g, '"'));
             
             
             
             
-            for (i = 0; i < oldLocations.length; i++) {
-                marker = new google.maps.Marker({
-                    position: new google.maps.LatLng(oldLocations[i][1], oldLocations[i][2]),
-                    map: map
+            
+            for (var i = 0; i < oldLocations.length; i++) {
+                var oldLocation = oldLocations[i];
+                var marker = new google.maps.Marker({
+                    position: { lat: oldLocations[0], lng: oldLocation[1] },
+                    map: map,
+                    icon: image,
+                    shape: shape,
+                    title: oldLocation[0],
+                    zIndex: oldLocation[2]
                 });
+            }
+}
             
 
 
