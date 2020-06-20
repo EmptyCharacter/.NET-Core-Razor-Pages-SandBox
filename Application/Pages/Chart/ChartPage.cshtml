@@ -263,14 +263,18 @@
             
             
             
-            
-
-            for (i = 0; i < locations.length; i++) {
-                marker = new google.maps.Marker({
-                    position: new google.maps.position(locations[i][1], locations[i][2]),
-                    map: map
-                });
+            window.eqfeed_callback = function (oldLocations) {
+                for (var i = 0; i < oldLocations.features.length; i++) {
+                    var coords = oldLocations.features[i].geometry.coordinates;
+                    var latLng = new google.maps.LatLng(coords[1], coords[0]);
+                    var marker = new google.maps.Marker({
+                        position: latLng,
+                        map: map
+                    });
+                }
             }
+
+            
 
             
 
