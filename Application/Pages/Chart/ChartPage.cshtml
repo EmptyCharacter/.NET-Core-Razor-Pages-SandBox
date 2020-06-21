@@ -260,10 +260,13 @@
 
               
             var oldLocations = JSON.parse("@Model.locations");
-           
+           //okay so ive been messing with the for loop for awhile
+            //I think ive narrowed it down to the formatting of the JSON string
+            //if not then look more into parsing to arrays
+            //and lat lng formatting for maps API
             
             
-            
+            var newModel = JSON.parse.oldLocations
             window.eqfeed_callback = function(oldLocations) {
                 for (var i = 0; i < oldLocations.features.length; i++) {
                     var coords = oldLocations.features[i].geometry.coordinates;
