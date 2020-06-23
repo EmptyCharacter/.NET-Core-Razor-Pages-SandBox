@@ -267,8 +267,8 @@
             
             
             
-            window.eqfeed_callback = function(oldLocations) {
-                for (var i = 0; i < oldLocations.features.length; i++) {
+            function generateMarkers(oldLocations) {
+                for (var i = 0; i < oldLocations.length; i++) {
                     var coords = oldLocations.features[i].geometry.coordinates;
                     var latLng = new google.maps.LatLng(coords[1], coords[0]);
                     var marker = new google.maps.Marker({
