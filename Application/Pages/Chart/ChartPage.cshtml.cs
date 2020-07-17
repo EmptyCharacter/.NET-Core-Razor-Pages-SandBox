@@ -103,7 +103,7 @@ namespace Application
             temp4 = temp3.Replace("\"", string.Empty);
             return temp4;
 
-
+            //wtf is this spaghetti code
         }
 
         public LatLng[] ExtractMarkers(List<String> cityList)
