@@ -91,7 +91,7 @@ namespace Application
         //-------------------------------Third Chart-------------------------------------
 
         //-------------------------------Fourth Chart (Maps API)-------------------------------------
-        /*public string regexString(string str)
+        public string regexString(string str)
         {
             string temp1;
             string temp2;
@@ -104,7 +104,7 @@ namespace Application
             return temp4;
 
             //wtf is this spaghetti code
-        }*/
+        }
 
         public LatLng[] ExtractMarkers(List<String> cityList)
         {
