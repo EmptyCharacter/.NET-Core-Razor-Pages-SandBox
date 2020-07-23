@@ -128,11 +128,7 @@ namespace Application
                 {Latitude = (Double)lat,
                  Longitude = (Double)lng});
 
-                tempList.Add(new LatLng
-                {
-                    Latitude = (Double)lat,
-                    Longitude = (Double)lng
-                });
+               
 
             }
 
