@@ -75,7 +75,7 @@ body {
 
 /*-----------------------Sidebar----------------------------*/
 
-#sidebar-wrapper {
+#sidebar-wrapper{
     z-index: 1;
     position: absolute;
     width: 0;
@@ -110,16 +110,16 @@ body {
 }
 
 .sidebar-nav li {
-        text-indent: 20px;
-        line-height: 40px;
+    text-indent: 20px;
+    line-height: 40px;
 }
 
 .sidebar-nav li a {
-display: block;
-text-decoration: none;
-color: #ddd;
+    display: block;
+    text-decoration: none;
+    color: #ddd;
 }
 
 .sidebar-nav li a:hover {
-                background: #16A085;
+    background: #16A085;
 }
