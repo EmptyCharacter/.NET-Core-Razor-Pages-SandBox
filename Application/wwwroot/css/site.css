@@ -1,1 +1,20 @@
-﻿
+﻿:root{
+    font-size: 16px;
+    
+}
+
+body{
+    color: black;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+}
+
+
+body::-webkit-scrollbar-track{
+
+}
+
+main{
+    margin-left: 5rem;
+}
