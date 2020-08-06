@@ -48,3 +48,28 @@ main{
 .nav-item:last-child{
     margin-top: auto;
 }
+
+.nav-link{
+    display: flex;
+    align-items: center;
+    height: 5rem;
+    color: var(--text primary);
+    text-decoration: none;
+}
+
+.link-text{
+    display: none;
+    margin-left: 1rem;
+}
+
+.nav-link svg{
+    min-width: 2rem;
+    margin: 0 1.5rem;
+}
+
+.navbar:hover{
+    width: 16rem;
+}
+.navbar:hover .link-text{
+    display: block;
+}
