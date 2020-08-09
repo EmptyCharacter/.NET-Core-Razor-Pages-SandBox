@@ -26,10 +26,12 @@ main{
 }
 
 .navbar {
+    width: 5rem;
+    height: 100vh;
     position: fixed;
     background-color: var(--bg-primary);
-    transition: width 600ms ease;
-    overflow: scroll;
+    transition: width 200ms ease;
+   
 }
 
 .navbar-nav{
@@ -75,3 +77,5 @@ main{
 .navbar:hover .link-text{
     display: block;
 }
+
+
