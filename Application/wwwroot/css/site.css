@@ -61,6 +61,13 @@ main{
     transition: var(--transition-speed);
 }
 
+.nav-link:hover{
+    filter: grayscale(0%) opacity(1);
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+}
+
+
 .link-text{
     display: none;
     margin-left: 1rem;
