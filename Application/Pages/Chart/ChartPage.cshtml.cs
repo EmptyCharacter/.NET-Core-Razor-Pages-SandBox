@@ -91,20 +91,7 @@ namespace Application
         //-------------------------------Third Chart-------------------------------------
 
         //-------------------------------Fourth Chart (Maps API)-------------------------------------
-        public string regexString(string str)
-        {
-            string temp1;
-            string temp2;
-            string temp3;
-            string temp4;
-            temp1 = str.Replace("\"Latitude", string.Empty);
-            temp2 = temp1.Replace("\"Longitude", string.Empty);
-            temp3 = temp2.Replace(":", string.Empty);
-            temp4 = temp3.Replace("\"", string.Empty);
-            return temp4;
-
-            //wtf is this spaghetti code
-        }
+        
 
         public LatLng[] ExtractMarkers(List<String> cityList)
         {
