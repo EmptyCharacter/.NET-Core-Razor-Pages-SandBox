@@ -57,7 +57,7 @@ namespace Application
             PopulateCollections();
 
             barChart = JsonConvert.SerializeObject(SortDates(DateList));
-            locations = regexString(JsonConvert.SerializeObject(ExtractMarkers(CityList)));
+            
         }
 
         //-------------------------------First Chart (Bar)-------------------------------------
