@@ -51,6 +51,11 @@ namespace Application
             DateList = entries.Select(x => x.Date).ToList();
             CityList = entries.Select(x => x.City).ToList();
         }
+
+        public List<LatLng> GetLatLngs()
+        {
+
+        }
         
         public void OnGet()
         {
