@@ -52,11 +52,16 @@ namespace Application
             CityList = entries.Select(x => x.City).ToList();
         }
 
-        public List<LatLng> GetLatLngs()
+        protected void Button1_Click(object sender, EventArgs e)
         {
-
+            IGeocoder geocoder = new GoogleGeocoder() { };
+            Address[] addresses = geocoder.Geocode("#65/1 bangalore").ToArray();
+            foreach (Address adrs in addresses)
+            {
+                Response.Write("address:" + adrs.Coordinates);
+            }
         }
-        
+
         public void OnGet()
         {
             PopulateCollections();
