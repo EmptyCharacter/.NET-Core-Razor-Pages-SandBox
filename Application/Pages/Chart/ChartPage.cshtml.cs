@@ -22,7 +22,6 @@ namespace Application
 
         private List<DateTime> DateList;
         private List<String> CityList;
-
         public string barChart { get; set; }
         public string locations { get; set; }
 
@@ -31,8 +30,15 @@ namespace Application
         {
             _context = context;
         }
-        
 
+
+        public void OnGet()
+        {
+            PopulateCollections();
+
+            barChart = JsonConvert.SerializeObject(SortDates(DateList));
+            locations = JsonConvert.SerializeObject(ExtractMarkers(CityList));
+        }
 
         //-------------------------------Data Retrival-------------------------------------
 
