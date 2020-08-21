@@ -85,13 +85,7 @@ namespace Application
             return tempList.ToArray();
         }
 
-        public void OnGet()
-        {
-            PopulateCollections();
-
-            barChart = JsonConvert.SerializeObject(SortDates(DateList));
-            
-        }
+        
 
         //-------------------------------First Chart (Bar)-------------------------------------
 
