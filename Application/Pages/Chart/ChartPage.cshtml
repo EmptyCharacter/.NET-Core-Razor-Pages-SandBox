@@ -266,7 +266,7 @@
             //if not then look more into parsing to arrays
             //and lat lng formatting for maps API
             for (var i = 0; i < oldLocations.length; i++) {
-          var coords = results.features[i].geometry.coordinates;
+          var coords = locations.features[i].geometry.coordinates;
           var latLng = new google.maps.LatLng(coords[1],coords[0]);
           var marker = new google.maps.Marker({
             position: latLng,
