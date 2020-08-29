@@ -287,7 +287,20 @@
 script.src = 'http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojsonp';
 document.getElementsByTagName('head')[0].appendChild(script);
 
+               void gmap_LoadCompleted(object sender, NavigationEventArgs e)
+{
+    gmap.InvokeScript("initialize");
 
+    // Add markers
+    foreach (Marker myM in ListMarker)
+    {
+        Object[] CallArgs = new Object[3];
+        CallArgs[0] = myM.Latitude.ToString();
+        CallArgs[1] = myM.Longitude.ToString();
+        CallArgs[2] = myM.ShortDescription;
+        object dummy = gmap.InvokeScript("AddMarker", CallArgs);
+    }
+}
       
             
         
