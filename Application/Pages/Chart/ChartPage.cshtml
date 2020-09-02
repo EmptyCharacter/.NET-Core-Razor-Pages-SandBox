@@ -265,7 +265,14 @@
             //I think ive narrowed it down to the formatting of the JSON string
             //if not then look more into parsing to arrays
             //and lat lng formatting for maps API
-   
+
+
+            
+        for (i = 0; i < locations.length; i++) {
+          marker = new google.maps.Marker({
+            position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+            map: map
+          });
 
 }
       
@@ -273,7 +280,7 @@
         
 
 
-        }
+        
     </script>
 
 
